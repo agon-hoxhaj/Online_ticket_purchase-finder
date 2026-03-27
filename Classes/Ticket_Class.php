@@ -19,9 +19,11 @@ class Ticket {
     }
 
     function get_details() {
-        echo "Event: " . $this->event->event_name . "<br>" .
-            "user: " . $this->user .
-            "Type: " . $this->event->event_type . "<br>";
+        return [
+          "event" => $this->event,
+          "user" => $this->user,
+          "price" => $this->price
+        ];
     }
 }
 

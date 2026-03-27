@@ -27,8 +27,11 @@ class User{
     }
 
     function get_UserDetails(){
-       echo "Username: " . $this->username . "<br> Email: " . $this->email .".<br> ";
-       echo "Tickets: " . $this->get_tickets();
+       return [
+        "id" => $this->id, 
+        "username" => $this->username, 
+        "email" =>   $this->email,
+       ];
     }
 }
 
