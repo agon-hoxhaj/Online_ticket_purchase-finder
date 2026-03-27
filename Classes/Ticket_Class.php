@@ -1,8 +1,7 @@
 <?php 
 
 require 'Classes/Event_Class.php';
-
-class Ticked {
+class Ticket {
     public $event;
     private $user;
 
@@ -24,5 +23,4 @@ class Ticked {
 }
 
 ?>
-
 
