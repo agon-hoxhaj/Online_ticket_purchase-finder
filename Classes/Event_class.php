@@ -7,7 +7,13 @@ class Event{
     public $location;
     public $date;
 
-  function set_details($event_name, $event_type, $location, $date,) {
+    __construct($event_name, $event_type, $location, $date) {
+    $this->event_name = $event_name;
+    $this->event_type = $event_type;
+    $this->location = $location;
+    $this->date = $date;
+  }
+  function set_details($event_name, $event_type, $location, $date) {
     $this->event_name = $event_name;
     $this->event_type = $event_type;
     $this->location = $location;
