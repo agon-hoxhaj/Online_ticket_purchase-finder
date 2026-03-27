@@ -3,7 +3,7 @@
 <html> 
     <head> </head>
     <body> 
-       <footer style="position: fixed; bottom: 0; width: 100%;" class="text-center text-black bg-light sticky-bottom">
+       <footer class="text-center text-black bg-light" style="width: 100%;">
   <div class="container-fluid">
     <div class="p-4 pb-0">
       <p class="d-flex justify-content-center align-items-center">

@@ -5,6 +5,7 @@ require 'Event_class.php';
 class Ticket {
     public $event;
     private $user;
+    public $price;
 
     function __construct($event_name, $event_type, $location, $date, $user) {
         $this->event = new Event($event_name, $event_type, $location, $date);
@@ -14,17 +15,21 @@ class Ticket {
     function set_details_from_values($event_name, $event_type, $location, $date, $user) {
         $this->event = new Event($event_name, $event_type, $location, $date);
         $this->user = $user;
+        $this->price = $price;
     }
 
-    function set_details_from_event($event, $user) {
+    function set_details_from_event($event, $user, $price) {
         $this->event = $event;
         $this->user = $user;
+        $this->price = $price;
     }
 
     function get_details() {
-        echo "Event: " . $this->event->event_name . "<br>" .
-            "user: " . $this->user .
-            "Type: " . $this->event->event_type . "<br>";
+        return [
+          "event" => $this->event,
+          "user" => $this->user,
+          "price" => $this->price
+        ];
     }
 }
 

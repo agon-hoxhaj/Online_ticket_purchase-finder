@@ -3,7 +3,7 @@
 class Event{
     public $event_name;
     public $event_type;
-    public $desription;
+    public $description;
     public $location;
     public $date;
 
@@ -21,7 +21,12 @@ class Event{
   }
 
   function get_details() {
-    echo "Event: " . $this->event_name . ". Type: " . $this->event_type .".<br>";
+    return [
+      "event_name" => $this->event_name,
+      "event_type" => $this->event_type,
+      "location" => $this->location,
+      "date" => $this->date
+    ];
   }
 }
 ?>
