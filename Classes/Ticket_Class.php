@@ -1,9 +1,15 @@
 <?php 
 
-require 'Classes/Event_Class.php';
+require 'Event_class.php';
+
 class Ticket {
     public $event;
     private $user;
+
+    function __construct($event_name, $event_type, $location, $date, $user) {
+        $this->event = new Event($event_name, $event_type, $location, $date);
+        $this->user = $user;
+    }
 
     function set_details_from_values($event_name, $event_type, $location, $date, $user) {
         $this->event = new Event($event_name, $event_type, $location, $date);

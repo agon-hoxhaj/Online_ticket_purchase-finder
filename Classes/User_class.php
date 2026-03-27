@@ -1,5 +1,7 @@
 <?php
+
 require "Ticket_Class.php";
+
 class User{
 
     private $id;
