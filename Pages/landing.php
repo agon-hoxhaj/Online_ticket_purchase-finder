@@ -1,4 +1,10 @@
-<?php ?>
+<?php 
+session_start();
+if(!isset($_SESSION["user-id"])){
+    header("Location: ../Pages/login-register.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

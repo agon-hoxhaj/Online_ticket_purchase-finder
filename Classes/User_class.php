@@ -26,8 +26,23 @@
             file_put_contents($this->file, $register, FILE_APPEND);
         }
         
-        function login(){
-            
+        static function login($email, $password){
+            $file = __DIR__ . "/../Handlers/Users.txt";
+            if(!file_exists($file)) return false;
+
+            $lines = file($file);
+            foreach($lines as $line){
+                $line_split = explode(";", $line);
+
+                if($line_split[3] == $email && password_verify($password, $line_split[4])){
+                    session_start();
+                    $_SESSION["user-id"] = $line_split[0];
+                    $_SESSION["username"] = $line_split[2];
+                    $_SESSION["user-type"] = $line_split[5];
+                    return true;
+                }
+            }
+            return false;
         }
 
         function add_ticket(Ticket $ticket){

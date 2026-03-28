@@ -27,9 +27,9 @@
 
     <!-- LOGIN -->
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel">
-      <form action="" method="POST">
+      <form action="../Handlers/login_handler.php" method="POST">
         <div class="form-group">
-          <label>Email or Username</label>
+          <label>Email</label>
           <input type="text" name="login" class="form-control" placeholder="  you@example.com" required />
         </div>
         <div class="form-group">

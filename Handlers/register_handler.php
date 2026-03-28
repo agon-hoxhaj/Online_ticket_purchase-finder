@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          $_POST["email"], 
          $_POST["password_register"], 
          "user");
-    header("Location: ../Pages/login-register.php");  //qon user-in per login page pas regjistrimit
+    header("Location: ../Pages/index.php");  //qon user-in per login page pas regjistrimit
     exit();
 }
 
