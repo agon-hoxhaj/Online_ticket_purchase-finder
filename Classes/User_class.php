@@ -5,18 +5,20 @@ require "Ticket_Class.php";
 class User{
 
     private $id;
+    private $full_name;
     private $username;
     private $email; 
-    private $passwordHash; 
+    private $password; 
     private $user_type; 
     private array $tickets = [];
     
     
-    function __construct($id, $username, $email, $password, $user_type){
+    function __construct($id, $full_name, $username, $email, $password, $user_type){
         $this->id = $id; 
+        $this->full_name = $full_name;
         $this->username = $username;
         $this->email =$email;
-        $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
         $this->user_type = $user_type;
     }
 

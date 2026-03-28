@@ -30,7 +30,7 @@
       <form action="" method="POST">
         <div class="form-group">
           <label>Email or Username</label>
-          <input type="text" name="login" class="form-control" placeholder="you@example.com" required />
+          <input type="text" name="login" class="form-control" placeholder="  you@example.com" required />
         </div>
         <div class="form-group">
           <label>Password</label>
@@ -52,10 +52,10 @@
 
     <!-- REGISTER -->
     <div class="tab-pane fade" id="pills-register" role="tabpanel">
-      <form action="" method="POST">
+      <form action="../Handlers/register_handler.php" method="POST">
         <div class="form-group">
           <label>Full Name</label>
-          <input type="text" name="name" class="form-control" placeholder="John Doe" required />
+          <input type="text" name="full_name" class="form-control" placeholder="John Doe" required />
         </div>
         <div class="form-group">
           <label>Username</label>
@@ -67,7 +67,7 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password" class="form-control" placeholder="••••••••" required />
+          <input type="password" name="password_register" class="form-control" placeholder="••••••••" required />
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
