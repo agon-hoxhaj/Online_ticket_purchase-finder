@@ -12,7 +12,7 @@
         private $user_type; 
         private array $tickets = [];
 
-        private $file = __DIR__ . "../Handlers/Users.txt";
+        private $file = __DIR__ . "/../Handlers/Users.txt";
         
         function register($full_name, $username, $email, $password, $user_type){
             $this->id = uniqid(); 
@@ -23,9 +23,7 @@
             $this->user_type = $user_type;
 
             $register = "{$this->id};{$this->full_name};{$this->username};{$this->email};{$this->password};{$this->user_type}\n";
-            $file_open = fopen($this->file, "a");
-            fwrite($file_open, $register);
-            fclose($file_open);
+            file_put_contents($this->file, $register, FILE_APPEND);
         }
         
         function login(){

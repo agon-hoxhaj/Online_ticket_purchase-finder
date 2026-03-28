@@ -1,5 +1,4 @@
 <?php
-require "../Components/login-register_component.php";
 require "../Classes/User_class.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -8,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_POST["full_name"], 
         $_POST["username"],
          $_POST["email"], 
-         $_POST["password"], 
+         $_POST["password_register"], 
          "user");
     header("Location: ../Pages/login-register.php");  //qon user-in per login page pas regjistrimit
     exit();
