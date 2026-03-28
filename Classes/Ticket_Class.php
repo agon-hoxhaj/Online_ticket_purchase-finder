@@ -12,7 +12,7 @@ class Ticket {
         $this->user = $user;
     }
 
-    function set_details_from_values($event_name, $event_type, $location, $date, $user) {
+    function set_details_from_values($event_name, $event_type, $location, $date, $user, $price) {
         $this->event = new Event($event_name, $event_type, $location, $date);
         $this->user = $user;
         $this->price = $price;

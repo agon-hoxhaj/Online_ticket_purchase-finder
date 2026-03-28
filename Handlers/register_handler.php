@@ -1,22 +1,17 @@
 <?php
 require "../Components/login-register_component.php";
-
+require "../Classes/User_class.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $file = fopen("Users.txt", "a");
-
-    $id = uniqid();
-    $full_name = $_POST["full_name"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password_register"];
-
-    $data = "{$id};{$full_name};{$username};{$email};{$password}";
-    fwrite($file, $data);
-    header("Location: ../Pages/landing.php");
+    $user = new User();
+    $user->register(
+        $_POST["full_name"], 
+        $_POST["username"],
+         $_POST["email"], 
+         $_POST["password"], 
+         "user");
+    header("Location: ../Pages/login-register.php");  //qon user-in per login page pas regjistrimit
     exit();
 }
-
-
 
 ?>
