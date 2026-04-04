@@ -5,6 +5,23 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>Page Title</title>
+<style>
+    .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-size: 18px;
+        background: black;
+        border-radius: 8px;
+        margin: 20px;
+    }
+    .item {
+        transition: all 0.3s ease;
+    }
+    .hidden-item {
+        display: none !important;
+    }
+</style>
 </head>
 <body>
 
@@ -27,38 +44,129 @@ $tickets_array = [$t1, $t2, $t3, $t4, $t5, $t6, $t7, $t8, $t9];
 $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 ?>
 
-<?php foreach($tickets_array as $Event): ?>
-    <?php $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Event->event->event_name . '.jpeg'; ?>
+<div class="d-flex flex-row" style="width: 50%;background-color: rgb(22, 22, 22)">
+    <div class="d-flex flex-column" style="width: 100%;padding: 20px;padding-top: 20px;"> 
 
-    <div class="container mb-2">
-        <div class="card ticket text-white d-flex flex-row" style="background-color: black;">
+        <div class="container my-3">
+            <!-- REMOVED the form tags and changed button type to "button" instead of "submit" -->
+            <div class="form-inline my-2 my-lg-0">
+                <input id="searchInput" class="d-flex flex-grow-1 form-control mr-sm-2 bg-dark text-white border-secondary" type="search" placeholder="Search by event name, type, or location..." aria-label="Search">
+                
+                <select id="typeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
+                    <option value="all">All Types</option>
+                    <option value="koncert">Concert</option>
+                    <option value="teater">Theater</option>
+                    <option value="festival">Festival</option>
+                    <option value="stand up">Stand Up</option>
+                </select>
 
-            <div style="
-                width: 40%;
-                min-height: 100px;
-                background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,1)),
-                            url('<?= $image_url ?>');
-                background-size: cover;
-                background-position: center;
-            "></div>
+                <select id="timeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
+                    <option value="all">Any Time</option>
+                    <option value="month">This Month</option>
+                    <option value="year">This Year</option>
+                </select>
+                <button id="searchButton" class="btn btn-outline-light m-2 my-sm-0" type="button">Search</button>
+            </div>
+        </div>
 
-            <div class="ps-3">
-                <div class="card-body">
-                    <h6><?= date('D', strtotime($Event->event->date)) ?> · <?= $Event->event->time ?></h6>
-                    <h5><?= $Event->event->event_type ?> / <strong><?= $Event->event->event_name ?></strong></h5>
-                    <h6>Prishtine · <?= $Event->event->location ?></h6>
+        <div id="itemsContainer">
+        <?php foreach($tickets_array as $index => $Event): ?>
+        <?php 
+        $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Event->event->event_name . '.jpeg';
+        // Prepare searchable data
+        $search_name = strtolower($Event->event->event_name);
+        $search_type = strtolower($Event->event->event_type);
+        $search_location = strtolower($Event->event->location);
+        ?>
+        
+            <div class="container my-1 event-item" 
+                name="<?= htmlspecialchars($search_name) ?>"
+                type="<?= htmlspecialchars($search_type) ?>"
+                date="<?= $Event->event->date ?>">
+
+                <div class="card text-white d-flex flex-row" style="background-color: black;">
+
+                    <div style="
+                        width: 40%;
+                        min-height: 100px;
+                        background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,1)), url('<?= $image_url ?>');
+                        background-size: cover;
+                        background-position: center;
+                    "></div>
+
+                    <div class="d-flex flex-grow-1 ps-3">
+                        <div class="card-body">
+                            <h6><?= date('D', strtotime($Event->event->date)) ?> · <?= $Event->event->time ?></h6>
+                            <h5><?= htmlspecialchars($Event->event->event_type) ?> / <strong><?= htmlspecialchars($Event->event->event_name) ?></strong></h5>
+                            <h6>Prishtine · <?= htmlspecialchars($Event->event->location) ?></h6>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mr-3">
+                        <button class="btn btn-success">Get ticket</button>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="d-flex align-items-center ms-auto">
-                <button class="btn btn-success">Get ticket</button>
-            </div>
-
+        <?php endforeach; ?>
         </div>
+
     </div>
-<?php endforeach; ?>
+</div>
 
 <?php include_once __DIR__ . '/../Components/footer.php'; ?>
 
 </body>
 </html>
+
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const timeFilter = document.getElementById('timeFilter');
+    const searchButton = document.getElementById('searchButton');
+    const itemsContainer = document.getElementById('itemsContainer');
+    
+    const allItems = Array.from(document.querySelectorAll('.event-item'));
+
+    function doSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedType = typeFilter.value;
+        const selectedTime = timeFilter.value;
+        
+        allItems.forEach(item => {
+
+            const name = item.getAttribute('name');
+            const type = item.getAttribute('type');
+            const date = item.getAttribute('date');
+            
+            var matchesSearch = true;
+            if (searchTerm !== '') {
+                matchesSearch = name.includes(searchTerm);
+            }
+            
+            var SameType = true;
+            if (selectedType !== 'all') {
+                SameType = type === selectedType;
+            }
+            
+            var SameTime = true;
+            if (selectedTime === 'month') {
+                SameTime = new Date(date).getMonth() === new Date().getMonth();
+            } else if (selectedTime === 'year') {
+                SameTime = new Date(date).getFullYear() === new Date().getFullYear();
+            } 
+            
+            if (matchesSearch && SameType && SameTime) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    
+    searchInput.addEventListener('input', doSearch);
+    searchButton.addEventListener('click', doSearch);
+    typeFilter.addEventListener('change', doSearch);
+    timeFilter.addEventListener('change', doSearch);
+</script>
