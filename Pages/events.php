@@ -1,14 +1,14 @@
 <?php 
-session_start()
+session_start();
 require '../Classes/Ticket_Class.php';
 
 $var = "Ky o file jem. MOS E PREK. une misoji(une) jom une(misoji)";
 echo $var. "<br>";
-$t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti',"2026-04-06", 'une');
+$t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti',"2026-04-06",'5:40PM', 'une');
 $t_array = [];
 
 for ($x = 0; $x <= 10; $x++) {
-    $t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti','one day', 'une');
+    $t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti','2026-04-06','5:40PM', 'une');
     $t_array[] = $t;
     echo $t_array[$x]->event->event_name;
 
@@ -34,7 +34,7 @@ for ($x = 0; $x <= 10; $x++) {
                     <div class="card-body">
                         <h6>' . date('D', strtotime($Event->event->date)) . ' · ' . $Event->event->time . '</h6>
                         <h5>' . $Event->event->event_type .' / <strong>' . $Event->event->event_name .'</strong></h5>
-                        <h6>Prishtine · Te Ukshin Hoti</h6>
+                        <h6>Prishtine · ' . $Event->event->location .'</h6>
                     </div>
                 </div>
                 

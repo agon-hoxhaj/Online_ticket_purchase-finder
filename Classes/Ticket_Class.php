@@ -7,13 +7,13 @@ class Ticket {
     private $user;
     public $price;
 
-    function __construct($event_name, $event_type, $location, $date, $user) {
-        $this->event = new Event($event_name, $event_type, $location, $date);
+    function __construct($event_name, $event_type, $location, $date, $time, $user) {
+        $this->event = new Event($event_name, $event_type, $location, $date, $time);
         $this->user = $user;
     }
 
-    function set_details_from_values($event_name, $event_type, $location, $date, $user, $price) {
-        $this->event = new Event($event_name, $event_type, $location, $date);
+    function set_details_from_values($event_name, $event_type, $location, $date, $time, $user, $price) {
+        $this->event = new Event($event_name, $event_type, $location, $date, $time);
         $this->user = $user;
         $this->price = $price;
     }
