@@ -10,10 +10,11 @@
 </head>
 <body>
 
-<?php include __DIR__ . '/../Components/nav.php';?>
+<?php
+session_start(); 
+include_once __DIR__ . '/../Components/nav.php';?>
 <?php 
-session_start();
-require '../Classes/Ticket_Class.php';
+require_once '../Classes/Ticket_Class.php';
 
 $var = "Ky o file jem. MOS E PREK. une misoji(une) jom une(misoji)";
 echo $var. "<br>";
@@ -68,7 +69,7 @@ for ($i = 0; $i < count($tickets_array); $i++) {
 
 
 ?>
-<?php include __DIR__ . '/../Components/footer.php';?>
+<?php include_once __DIR__ . '/../Components/footer.php';?>
 
 </body>
 </html>

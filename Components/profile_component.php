@@ -17,7 +17,7 @@
         <div class="card mb-4 flex-fill">
           <div class="card-body text-center">
             <br>
-            <img src="../Public/Basic_pfp.jpg " alt="avatar"
+            <img src="../Public/kanye.jpg" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
