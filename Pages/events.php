@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<title>Page Title</title>
+</head>
+<body>
+
+<?php include __DIR__ . '/../Components/nav.php';?>
 <?php 
 session_start();
 require '../Classes/Ticket_Class.php';
@@ -55,21 +68,7 @@ for ($i = 0; $i < count($tickets_array); $i++) {
 
 
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<title>Page Title</title>
-</head>
-<body>
-
-
-
+<?php include __DIR__ . '/../Components/footer.php';?>
 
 </body>
 </html>
