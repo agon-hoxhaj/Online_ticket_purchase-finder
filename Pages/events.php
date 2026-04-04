@@ -1,4 +1,4 @@
-<?php 
+echo not working <?php 
 
 require '../Classes/Ticket_Class.php';
 
@@ -11,28 +11,39 @@ for ($x = 0; $x <= 10; $x++) {
     $t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti','one day', 'une');
     $t_array[] = $t;
     echo $t_array[$x]->event->event_name;
-    echo 
-    '<div class="container mt-5">
-        <div class="card ticket bg-dark text-white p-3">
-            
-            <div class="card-header d-flex justify-content-between">
-            <h4>Nirvana</h4>
-            <span class="badge bg-warning text-dark">VIP</span>
-            </div>
 
-            <div class="card-body">
-            <p><strong>Type:</strong> Concert</p>
-            <p><strong>Location:</strong> Te Ukshin</p>
-            <p><strong>Date:</strong> 27 March 2026</p>
-            </div>
+    $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+    $image_url = $base_path . '/../Public/Temp_Event_Img/images.jpeg';
 
-            <div class="card-footer d-flex justify-content-between">
-            <span>Seat: A12</span>
-            <button class="btn btn-success">Buy</button>
-            </div>
+    $Event = $t_array[$x];
 
-        </div>
-    </div>';
+    echo '
+        <div class="container">
+            <div class="card ticket text-white d-flex flex-row" style="background-color: black;">
+
+                <div style="
+                    width: 40%;
+                    min-height: 100px;
+                    background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,1)),
+                                url(\'' . $image_url . '\');
+                    background-size: cover;
+                    background-position: center;
+                "></div>
+
+                <div class="ps-3">
+                    <div class="card-body">
+                        <h6>Tue · 5:30PM</h6>
+                        <h5>' . $Event->event->event_type .'/ <strong>' . $Event->event->event_name .'</strong></h5>
+                        <h6>Prishtine · Te Ukshin Hoti</h6>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center ms-auto">
+                    <button class="btn btn-success">Get ticket</button>
+                </div>
+
+            </div>
+        </div>';
 }
 
 
