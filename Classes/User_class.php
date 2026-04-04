@@ -9,20 +9,22 @@
         private $username;
         private $email; 
         private $password; 
+        private $country;
         private $user_type; 
         private array $tickets = [];
 
         private $file = __DIR__ . "/../Handlers/Users.txt";
         
-        function register($full_name, $username, $email, $password, $user_type){
+        function register($full_name, $username, $email, $password, $country, $user_type){
             $this->id = uniqid(); 
             $this->full_name = $full_name;
             $this->username = $username;
             $this->email =$email;
+            $this->country = $country ;
             $this->password = password_hash($password, PASSWORD_DEFAULT);
             $this->user_type = $user_type;
 
-            $register = "{$this->id};{$this->full_name};{$this->username};{$this->email};{$this->password};{$this->user_type}\n";
+            $register = "{$this->id};{$this->full_name};{$this->username};{$this->email};{$this->password};{$this->country};{$this->user_type}\n";
             file_put_contents($this->file, $register, FILE_APPEND);
         }
         
@@ -37,8 +39,11 @@
                 if($line_split[3] == $email && password_verify($password, $line_split[4])){
                     session_start();
                     $_SESSION["user-id"] = $line_split[0];
+                    $_SESSION["full-name"] = $line_split[1];
                     $_SESSION["username"] = $line_split[2];
-                    $_SESSION["user-type"] = $line_split[5];
+                    $_SESSION["email"] = $line_split[3];
+                    $_SESSION["country"] = $line_split[5];
+                    $_SESSION["user-type"] = $line_split[6];
                     return true;
                 }
             }
