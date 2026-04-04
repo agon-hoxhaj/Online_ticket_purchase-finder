@@ -21,7 +21,7 @@
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Disabled</a>
+        <a class="nav-link" href="../Pages/events.php">Events</a>
       </li>
     </ul>
     <a href="../Pages/profile.php" style="padding-right: 10px; color: black;"><?php echo $_SESSION['username'];?></a>
