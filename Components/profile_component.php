@@ -22,7 +22,7 @@
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button>
+              <a href="../Pages/my_events.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Events</button></a>
               <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Message</button>
             </div>
           </div>
