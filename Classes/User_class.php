@@ -13,7 +13,7 @@
         private $user_type; 
         private array $tickets = [];
 
-        private $file = __DIR__ . "/../Handlers/Users.txt";
+        private $file = __DIR__ . "/../Server_data/Users.txt";
         
         function register($full_name, $username, $email, $password, $country, $user_type){
             $this->id = uniqid(); 
@@ -29,7 +29,7 @@
         }
         
         static function login($email, $password){
-            $file = __DIR__ . "/../Handlers/Users.txt";
+            $file = __DIR__ . "/../Server_data/Users.txt";
             if(!file_exists($file)) return false;
 
             $lines = file($file);
