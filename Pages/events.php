@@ -1,10 +1,10 @@
-echo not working <?php 
-
+<?php 
+session_start()
 require '../Classes/Ticket_Class.php';
 
 $var = "Ky o file jem. MOS E PREK. une misoji(une) jom une(misoji)";
 echo $var. "<br>";
-$t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti','one day', 'une');
+$t = new Ticket('nirvanaaa', 'Koncert','te ukshin hoti',"2026-04-06", 'une');
 $t_array = [];
 
 for ($x = 0; $x <= 10; $x++) {
@@ -32,8 +32,8 @@ for ($x = 0; $x <= 10; $x++) {
 
                 <div class="ps-3">
                     <div class="card-body">
-                        <h6>Tue · 5:30PM</h6>
-                        <h5>' . $Event->event->event_type .'/ <strong>' . $Event->event->event_name .'</strong></h5>
+                        <h6>' . date('D', strtotime($Event->event->date)) . ' · ' . $Event->event->time . '</h6>
+                        <h5>' . $Event->event->event_type .' / <strong>' . $Event->event->event_name .'</strong></h5>
                         <h6>Prishtine · Te Ukshin Hoti</h6>
                     </div>
                 </div>
