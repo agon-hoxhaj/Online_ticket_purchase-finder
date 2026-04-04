@@ -6,6 +6,7 @@ class Event{
     public $description;
     public $location;
     public $date;
+    public $time;
 
     function __construct($event_name, $event_type, $location, $date, $time) {
     $this->event_name = $event_name;
