@@ -61,9 +61,28 @@
           <label>Username</label>
           <input type="text" name="username" class="form-control" placeholder="johndoe" required />
         </div>
-        <div class="form-group">
+         <div class="form-group">
           <label>Email</label>
           <input type="email" name="email" class="form-control" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+         <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>        
+            <select id="country" name="country" class="form-control">
+                <option value="Kosova">Kosova</option>
+                <option value="Albania">Albania</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                <option value="Germany">Germany</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="USA">USA</option>
+                <option value="Angola">Angola</option>
+                <option value="Chad">Chad</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="China">China</option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="Japan">Japan</option>
+                <option value="Niger">Niger</option>
+                <option value="Australia">Australia</option>
+            </select>
         </div>
         <div class="form-group">
           <label>Password</label>

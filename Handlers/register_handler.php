@@ -6,7 +6,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user->register(
         $_POST["full_name"], 
         $_POST["username"],
-         $_POST["email"], 
+         $_POST["country"], 
+         $_POST["email"],
          $_POST["password_register"], 
          "user");
     header("Location: ../Pages/index.php");  //qon user-in per login page pas regjistrimit
