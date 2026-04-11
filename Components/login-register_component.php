@@ -27,14 +27,16 @@
 
     <!-- LOGIN -->
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel">
-      <form action="../Handlers/login_handler.php" method="POST">
+      <form id="loginForm" action="../Handlers/login_handler.php" method="POST">
         <div class="form-group">
           <label>Email</label>
-          <input type="text" name="login" class="form-control" placeholder="  you@example.com" required />
+          <input type="text" id="loginEmail" name="login" class="form-control" placeholder="you@example.com" required />
+          <small id="loginEmailError" class="text-danger"></small>
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password" class="form-control" placeholder="••••••••" required />
+          <input type="password" id="loginPassword" name="password" class="form-control" placeholder="••••••••" required />
+          <small id="loginPasswordError" class="text-danger"></small>
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
           <div class="form-check">
@@ -52,45 +54,50 @@
 
     <!-- REGISTER -->
     <div class="tab-pane fade" id="pills-register" role="tabpanel">
-      <form action="../Handlers/register_handler.php" method="POST">
+      <form id="registerForm" action="../Handlers/register_handler.php" method="POST">
         <div class="form-group">
           <label>Full Name</label>
-          <input type="text" name="full_name" class="form-control" placeholder="John Doe" required />
+          <input type="text" id="fullName" name="full_name" class="form-control" placeholder="John Doe" required />
+          <small id="fullNameError" class="text-danger"></small>
         </div>
         <div class="form-group">
           <label>Username</label>
-          <input type="text" name="username" class="form-control" placeholder="johndoe" required />
-        </div>
-         <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="you@example.com" required />
+          <input type="text" id="username" name="username" class="form-control" placeholder="johndoe" required />
+          <small id="usernameError" class="text-danger"></small>
         </div>
         <div class="form-group">
-         <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>        
-            <select id="country" name="country" class="form-control">
-                <option value="Kosova">Kosova</option>
-                <option value="Albania">Albania</option>
-                <option value="Zimbabwe">Zimbabwe</option>
-                <option value="Germany">Germany</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="USA">USA</option>
-                <option value="Angola">Angola</option>
-                <option value="Chad">Chad</option>
-                <option value="Antarctica">Antarctica</option>
-                <option value="China">China</option>
-                <option value="Taiwan">Taiwan</option>
-                <option value="Japan">Japan</option>
-                <option value="Niger">Niger</option>
-                <option value="Australia">Australia</option>
-            </select>
+          <label>Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required />
+          <small id="emailError" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>
+          <select id="country" name="country" class="form-control">
+            <option value="Kosova">Kosova</option>
+            <option value="Albania">Albania</option>
+            <option value="Zimbabwe">Zimbabwe</option>
+            <option value="Germany">Germany</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="USA">USA</option>
+            <option value="Angola">Angola</option>
+            <option value="Chad">Chad</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="China">China</option>
+            <option value="Taiwan">Taiwan</option>
+            <option value="Japan">Japan</option>
+            <option value="Niger">Niger</option>
+            <option value="Australia">Australia</option>
+          </select>
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password_register" class="form-control" placeholder="••••••••" required />
+          <input type="password" id="password" name="password_register" class="form-control" placeholder="••••••••" required />
+          <small id="passwordError" class="text-danger"></small>
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
-          <input type="password" name="confirm_password" class="form-control" placeholder="••••••••" required />
+          <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="••••••••" required />
+          <small id="confirmPasswordError" class="text-danger"></small>
         </div>
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="terms" required />
@@ -108,5 +115,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="..\Script\validation.js"></script>
 </body>
 </html>
