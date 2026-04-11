@@ -9,9 +9,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     if(User::login($email, $password)){
-        if (isset($remember_me)) {
-             setcookie('remember_email', $email, time() + 60*60*24*30, '/', '', true, true);
-            }
+        if ($remember_me) {
+            setcookie('remember_email', $email, time() + 60*60*24*30, '/', '', false, true);
+        }
 
         header("Location: ../Pages/landing.php");   
     } else {
