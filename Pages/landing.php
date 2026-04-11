@@ -1,5 +1,6 @@
 <?php 
-session_start();
+require_once __DIR__ . "/../Components/auth.php";
+
 if(!isset($_SESSION["user-id"])){
     header("Location: ../Pages/index.php");
     exit();

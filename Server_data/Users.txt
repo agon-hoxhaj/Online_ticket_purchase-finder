@@ -1,3 +1,5 @@
 69c859c7e2aec;Agon Hoxhaj;Agoni;Kosova;agon@gmail.com;$2y$10$EXMBfiCjWV88OAUTuX2dzeDlEi5IFA38aIMbonUo1TdnWwV7i6zk.;user
 
 69d128e219ce9;kaon;kaon;Kosova;kaon.ahmeti@gmail.com;$2y$10$RxC.0c/RpIZDVBCYxhb7Y.tNQ5wwdkE9B7DytspRrU0JS8CdmC35G;user
+69da5673a6ad2;art;art;Kosova;art@gmail.com;$2y$10$vbJXRJ78qnX/REY40fzGf.o9MKYzZU9Pw1EKHB8qXELltVHP.YkUu;user
+69da5a79c4844;art;art;Kosova;art@gmail.com;$2y$10$tSwcuhh4BXhudzt8krmlEegvUA703nKZhCB8654LRpnFmBLYY9SWK;user
