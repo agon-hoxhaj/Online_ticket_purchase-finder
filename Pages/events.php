@@ -43,77 +43,8 @@ $t9 = new Ticket('Jazz Festival', 'Festival', 'Amfiteatri', '2026-03-16', '7:00P
 $tickets_array = [$t1, $t2, $t3, $t4, $t5, $t6, $t7, $t8, $t9];
 $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 ?>
-<div class="d-flex flex-row">
-    <div class="d-flex flex-column" style="width: 49%;background-color: rgb(22, 22, 22)">
-        <div c style="width: 100%;padding: 20px;padding-top: 20px;"> 
 
-            <div class="container my-3">
-                <div class="form-inline my-2 my-lg-0">
-                    <input id="searchInput" class="d-flex flex-grow-1 form-control mr-sm-2 bg-dark text-white border-secondary" type="search" placeholder="Search by event name, type, or location..." aria-label="Search">
-                    
-                    <select id="typeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
-                        <option value="all">All Types</option>
-                        <option value="koncert">Concert</option>
-                        <option value="teater">Theater</option>
-                        <option value="festival">Festival</option>
-                        <option value="stand up">Stand Up</option>
-                    </select>
-
-                    <select id="timeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
-                        <option value="all">Any Time</option>
-                        <option value="month">This Month</option>
-                        <option value="year">This Year</option>
-                    </select>
-                    <button id="searchButton" class="btn btn-outline-light m-2 my-sm-0" type="button">Search</button>
-                </div>
-            </div>
-
-            <div id="itemsContainer">
-            <?php foreach($tickets_array as $index => $Event): ?>
-            <?php 
-            $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Event->event->event_name . '.jpeg';
-            // Prepare searchable data
-            $search_name = strtolower($Event->event->event_name);
-            $search_type = strtolower($Event->event->event_type);
-            $search_location = strtolower($Event->event->location);
-            ?>
-            
-                <div class="container my-1 event-item" 
-                    name="<?= htmlspecialchars($search_name) ?>"
-                    type="<?= htmlspecialchars($search_type) ?>"
-                    date="<?= $Event->event->date ?>">
-
-                    <div class="card text-white d-flex flex-row" style="background-color: black;">
-
-                        <div style="
-                            width: 40%;
-                            min-height: 100px;
-                            background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,1)), url('<?= $image_url ?>');
-                            background-size: cover;
-                            background-position: center;
-                        "></div>
-
-                        <div class="d-flex flex-grow-1 ps-3">
-                            <div class="card-body">
-                                <h6><?= date('D', strtotime($Event->event->date)) ?> · <?= $Event->event->time ?></h6>
-                                <h5><?= htmlspecialchars($Event->event->event_type) ?> / <strong><?= htmlspecialchars($Event->event->event_name) ?></strong></h5>
-                                <h6>Prishtine · <?= htmlspecialchars($Event->event->location) ?></h6>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center mr-3">
-                            <button class="btn btn-success">Get ticket</button>
-                        </div>
-
-                    </div>
-                </div>
-            <?php endforeach; ?>
-            </div>
-
-        </div>
-    </div>
-    <div class="d-flex flex-column" style="width: 49%;background-color: rgb(22, 22, 22)">
-    <?php
+<?php
     $chairs = [
         [1 => "occupied", 2 => "occupied", 3 => "occupied", 4 => "occupied"],
         [5 => "occupied", 6 => "occupied", 7 => "occupied", 8 => "occupied"],
@@ -122,11 +53,8 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
         [17 => "occupied", 18 => "free", 19 => "occupied", 20 => "free"]
     ];
 
-    ?>
-    <?php
     function seet_1($chairs)
     {
-    echo '<div type="Teater/Koncert" class="d-flex flex-row m-3 seet_container col-auto">';
         foreach ($chairs as $row) {
         echo '<div class="d-flex flex-column">';
 
@@ -151,7 +79,6 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
             $i++;
         }
         echo '</div>';}
-    echo '</div>';
     };
 
     function seet_2($chairs)
@@ -182,7 +109,7 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
     function seet_3($chairs)
     {
-    echo '<div type="Kinema" class="d-flex flex-row m-3 seet_container">';
+
     $j = 1;
     foreach ($chairs as $row) {
         $m_right = 0;
@@ -195,14 +122,131 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
         echo '</div>';
         $j ++;
         }
-    echo '</div>';
     }
+    ?>
+<div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-column" style="width: 50%;background-color: rgb(22, 22, 22);padding-top: 20px;">
+        <div c style="width: 100%;padding: 20px;padding-top: 20px;"> 
 
-    seet_1($chairs);
-    seet_2($chairs);
-    seet_3($chairs);
+            <div class="container my-3">
+                <div class="form-inline my-2 my-lg-0">
+                    <input id="searchInput" class="d-flex flex-grow-1 form-control mr-sm-2 bg-dark text-white border-secondary" type="search" placeholder="Search by event name, type, or location..." aria-label="Search">
+                    
+                    <select id="typeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
+                        <option value="all">All Types</option>
+                        <option value="koncert">Concert</option>
+                        <option value="teater">Theater</option>
+                        <option value="festival">Festival</option>
+                        <option value="stand up">Stand Up</option>
+                    </select>
 
-    ?>  
+                    <select id="timeFilter" class="d-flex ml-2 mr-2 bg-dark form-control text-white border-secondary">
+                        <option value="all">Any Time</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                    <button id="searchButton" class="btn btn-outline-light m-2 my-sm-0" type="button">Search</button>
+                </div>
+            </div>
+
+            <div id="itemsContainer">
+            <?php foreach($tickets_array as $index => $Ticket): ?>
+            <?php 
+            $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Ticket->event->event_name . '.jpeg';
+            // Prepare searchable data
+            $search_name = strtolower($Ticket->event->event_name);
+            $search_type = strtolower($Ticket->event->event_type);
+            $search_location = strtolower($Ticket->event->location);
+
+            ?>
+            
+                <div class="container my-1 event-item" 
+                    name="<?= htmlspecialchars($search_name) ?>"
+                    type="<?= htmlspecialchars($search_type) ?>"
+                    date="<?= $Ticket->event->date ?>">
+
+                    <div class="card text-white d-flex flex-row" style="background-color: black;">
+
+                        <div style="
+                            width: 40%;
+                            min-height: 100px;
+                            background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,1)), url('<?= $image_url ?>');
+                            background-size: cover;
+                            background-position: center;
+                        "></div>
+
+                        <div class="d-flex flex-grow-1 ps-3">
+                            <div class="card-body">
+                                <h6><?= date('D', strtotime($Ticket->event->date)) ?> · <?= $Ticket->event->time ?></h6>
+                                <h5><?= htmlspecialchars($Ticket->event->event_type) ?> / <strong><?= htmlspecialchars($Ticket->event->event_name) ?></strong></h5>
+                                <h6>Prishtine · <?= htmlspecialchars($Ticket->event->location) ?></h6>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mr-3">
+                            <!-- Using the event_id as the button ID -->
+                            <button id="<?= $Ticket->event->event_name ?>" class="btn btn-success">Get ticket</button>
+                        </div>
+
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex flex-column" style="width: 50%;background-color: rgb(22, 22, 22) ;padding-top: 40px;">
+        <?php
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $found = false;
+            foreach($tickets_array as $index => $Ticket):
+                $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+                $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Ticket->event->event_name . '.jpeg';
+        ?>
+            <?php
+                if ($Ticket->event->event_name == $id):
+            ?>
+                    <div style="color:white; background-color:#333; border-radius:10px;">
+                        
+                        <div style="
+                            width: 100%;
+                            min-height: 200px;
+                            background: url('<?= $image_url ?>');
+                            background-size: cover;
+                            background-position: center;
+                        "></div>
+
+                        <div class="d-flex flex-row justify-content-between" style = "padding:20px">
+                            <div class="d-flex flex-column">
+                                <h4><?= htmlspecialchars($Ticket->event->event_name) ?></h4>
+                                <p>Location: <?= htmlspecialchars($Ticket->event->location) ?></p>
+                                <p>Date: <?= $Ticket->event->date ?> at <?= $Ticket->event->time ?></p>
+                            </div>
+                            <div class="d-flex flex-column" style="width: 50%;">
+                                <div type="Kinema" class="d-flex flex-row m-3 seet_container">
+                                    <?php seet_3($chairs); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php 
+                    $found = true;
+                    break;
+                endif;
+            endforeach; 
+            ?>
+            <?php if (!$found): ?>
+                <h3 style="color:white; padding:20px;">No event found with ID: <?= htmlspecialchars($id) ?></h3>
+                <h3 style="color:white; padding:20px;">No event found with ID: <?= $Ticket->event_id ?></h3>
+            <?php endif; ?>
+        <?php 
+        } 
+        else {
+            echo '<h3 style="color:white; padding:20px;">Click on any "Get ticket" button to see event details here</h3>';
+        }
+        ?>
     </div>
 </div>
 
@@ -210,7 +254,6 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 </body>
 </html>
-
 
 <script>
     const searchInput = document.getElementById('searchInput');
@@ -262,6 +305,21 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
     typeFilter.addEventListener('change', doSearch);
     timeFilter.addEventListener('change', doSearch);
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.btn-success').forEach(button => {
+            button.addEventListener('click', function() {
+                const eventId = this.id;
+                console.log('Button clicked, ID:', eventId); // Debug log
+                if(eventId) {
+                    window.location.href = '?id=' + eventId;
+                } else {
+                    console.error('Button has no ID!', this);
+                }
+            });
+        });
+    });
+</script>
 <style>
   .chair {
     padding: 0px;
@@ -270,7 +328,6 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
     margin: 1px;
   }
   .seet_container{
-    width: 50%;
     aspect-ratio: 1 / 1;
 
     margin: 3px;
@@ -279,8 +336,7 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
     justify-content: center;
     align-items: center; 
     
-    background-color: rgb(16, 28, 118);
-
+    background-color: rgb(231, 231, 231);
   }
 
 </style>
