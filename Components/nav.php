@@ -1,4 +1,8 @@
-<?php ?>
+
+<?php
+require_once __DIR__ . "/auth.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
