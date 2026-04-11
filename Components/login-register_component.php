@@ -70,11 +70,6 @@
           <input type="email" name="email" class="form-control" placeholder="you@example.com"  value="<?php echo isset($_COOKIE['remember_email']) ? htmlspecialchars($_COOKIE['remember_email']) : ''; ?>" required  />
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required />
-          <small id="emailError" class="text-danger"></small>
-        </div>
-        <div class="form-group">
           <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>
           <select id="country" name="country" class="form-control">
             <option value="Kosova">Kosova</option>
