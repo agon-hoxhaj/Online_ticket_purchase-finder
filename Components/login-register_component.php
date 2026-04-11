@@ -40,8 +40,8 @@
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="rememberMe" />
-            <label class="form-check-label" for="rememberMe">Remember me</label>
+            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember"/>
+            <label class="form-check-label" for="rememberMe" ">Remember me</label>
           </div>
           <a href="#" class="forgot-link">Forgot password?</a>
         </div>
@@ -62,8 +62,12 @@
         </div>
         <div class="form-group">
           <label>Username</label>
-          <input type="text" id="username" name="username" class="form-control" placeholder="johndoe" required />
-          <small id="usernameError" class="text-danger"></small>
+
+          <input type="text" name="username" class="form-control" placeholder="johndoe" required />
+        </div>
+         <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" placeholder="you@example.com"  value="<?php echo isset($_COOKIE['remember_email']) ? htmlspecialchars($_COOKIE['remember_email']) : ''; ?>" required  />
         </div>
         <div class="form-group">
           <label>Email</label>

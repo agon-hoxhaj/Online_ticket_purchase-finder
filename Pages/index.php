@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . '/../Components/auth.php'; 
+
+// No redirect here - let auth.php handle auto-login from cookie, then show login form if still not logged in
+?>
+
 <?php ?>
 <!DOCTYPE html>
 <html>
@@ -95,6 +101,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script></head>
 <body>
-<?php include __DIR__ . '/../Components/login-register_component.php';?>
+<?php include_once __DIR__ . '/../Components/login-register_component.php';?>
 </body>
 </html>
