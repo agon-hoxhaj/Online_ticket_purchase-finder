@@ -24,7 +24,7 @@
             $this->password = password_hash($password, PASSWORD_DEFAULT);
             $this->user_type = $user_type;
 
-            $register = "{$this->id};{$this->full_name};{$this->username};{$this->country};{$this->email};{$this->password};{$this->user_type}\n";
+            $register = "{$this->id};{$this->full_name};{$this->username};{$this->country};{$this->email};{$this->password};{$this->user_type}".PHP_EOL;
             file_put_contents($this->file, $register, FILE_APPEND);
         }
         
@@ -65,7 +65,28 @@
             "email" =>   $this->email,
         ];
         }
+    
+    static function get_all_users() {
+    $file = __DIR__ . "/../Server_data/Users.txt";
+    if (!file_exists($file)) return [];
+
+    $users = [];
+    $lines = file($file);
+
+    foreach ($lines as $line) {
+        $line_split = explode(";", trim($line));
+        if (count($line_split) >= 7) {
+            $users[] = [
+                "id"        => $line_split[0],
+                "full_name" => $line_split[1],
+                "username"  => $line_split[2],
+                "country"   => $line_split[3],
+                "email"     => $line_split[4],
+                "user_type" => trim($line_split[6])
+            ];
+        }
     }
-
-
+    return $users;
+}
+    }
     ?>
