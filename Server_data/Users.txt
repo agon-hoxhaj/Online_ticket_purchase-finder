@@ -1,3 +1,4 @@
 69da68f8d6d14;Bee;Bee;Niger;bee@gmail.com;$2y$10$Fz0Y99MNSa5kcG4pDGY5luxMomkTMhjDJcmRVgRgtDoSRPMqmVQBO;user
 69dada33b4fd1;art;art;Kosova;art@gmail.com;$2y$10$620AVUISPJKQy3zn5fA3ue9IRDb5emwa2x3wX4o2Ze0wAS57p8IdC;user
 69dadbf80abbc;art;art;Kosova;arti@gmail.com;$2y$10$/FxKLoyBm3q00DRO0FDEk.fvvIpVkp1vGHnPZN5Is0DZNvvvs5xBm;user
+69df995f22e79;Agon Hoxhaj;agoni;Kosova;agon@gmail.com;$2y$10$zllqQ8Wjz/hHPFjjawZCjOdhDQgrIxPBZ5aEELm7AKaBlv21sU4Vq;user

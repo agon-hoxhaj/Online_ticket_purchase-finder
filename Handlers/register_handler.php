@@ -10,9 +10,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user->register(
         $_POST["full_name"], 
         $_POST["username"],
-         $_POST["country"], 
-         $email,
-         $password, 
+        $_POST["country"], 
+        $email,
+        $password, 
          "user");
     
     // Auto-login after registration
