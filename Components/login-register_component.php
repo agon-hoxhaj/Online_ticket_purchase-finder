@@ -62,7 +62,6 @@
         </div>
         <div class="form-group">
           <label>Username</label>
-
           <input type="text" id="username" name="username" class="form-control" placeholder="johndoe" required />
           <small id="usernameError" class="text-danger"></small>
         </div>
