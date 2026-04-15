@@ -3,10 +3,12 @@ function renderEventDetails($tickets_array, $chairs) {
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
+        $priceTier = isset($_GET['price_tier']) ? $_GET['price_tier'] : 1;
         $found = false;
         foreach($tickets_array as $index => $Ticket):
             $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
             $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Ticket->event_name . '.jpeg';
+            $banner_url = $base_path . '/../Public/Temp_Event_Banner/' . $Ticket->event_name . '.jpeg';
     ?>
         <?php
             if ($Ticket->event_name == $id):
@@ -16,26 +18,42 @@ function renderEventDetails($tickets_array, $chairs) {
                     <div style="
                         width: 100%;
                         min-height: 200px;
-                        background: url('<?= $image_url ?>');
+                        background: url('<?= $banner_url ?>');
                         background-size: cover;
                         background-position: center;
                     "></div>
                     <div style = "padding:20px">
-                        <h4><?= htmlspecialchars($Ticket->event_name) ?></h4>
+                        
 
                         <div class="d-flex flex-row justify-content-between">
-                            <p>Location: <?= htmlspecialchars($Ticket->location) ?></p>
-                            <p><?= $Ticket->date ?> at <?= $Ticket->time ?></p>
+                            <h4><?= htmlspecialchars($Ticket->event_name) ?></h4>
                         </div>
 
-                        <div class="d-flex flex-row justify-content-between">
-                            <div class="d-flex flex-column">
+                        <div class="d-flex flex-row my-3">
+                            <div class="d-flex flex-column pr-3 my-3" style="width:50%;">
                                 <p><?= $Ticket->description ?></p>
+                                <h6>
+                                <?= htmlspecialchars($Ticket->location) ?> · <?= $Ticket->date ?> · <?= $Ticket->time ?>
+                                </h6>
+                                <?php
+                                    $basePrice = $Ticket->price; 
+                                    if ($priceTier > 0 and $priceTier <= 12){
+                                        $finalPrice = $basePrice;
+                                        $label = 'Standard 🎟️';
+                                    }
+                                    elseif ($priceTier > 12 and $priceTier <= 16){
+                                        $finalPrice = $basePrice * 1.2;
+                                        $label = 'Early Bird 🎟️';
+                                    }
+                                    else{
+                                        $finalPrice = $basePrice * 2.5;
+                                        $label = 'VIP 🎫';
+                                    }
+                                ?>
+                                <h2 class="display-5 fw-bold mt-3">$<?= $finalPrice ?> <?= $label ?></h2>
                             </div>
-                            <div class="d-flex flex-column" style="width: 50%;">
-                                <div type="Kinema" class="d-flex flex-row m-3 seet_container">
-                                    <?php seet_3($chairs); ?>
-                                </div>
+                            <div class="seet_container flex-column">
+                                <?php seet_type($Ticket->event_type,$id) ?>
                             </div>
                         </div>
                     </div>

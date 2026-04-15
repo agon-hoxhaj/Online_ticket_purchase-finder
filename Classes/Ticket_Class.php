@@ -10,13 +10,14 @@ class Ticket {
     public $price;
     public $user;
 
-    function __construct($event_name, $event_type, $description,$location, $date, $time, $user) {
+    function __construct($event_name, $event_type, $description,$location, $date, $time, $price, $user) {
         $this->event_name = $event_name;
         $this->event_type = $event_type;
         $this->description = $description;
         $this->location = $location;
         $this->date = $date;
         $this->time = $time;
+        $this->price = $price;
         $this->user = $user;
     }
 

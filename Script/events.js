@@ -60,3 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn-outline-primary').forEach(button => {
+        button.addEventListener('click', function() {
+            const eventId = this.id;  
+            const priceTier = this.value;  
+            
+            if(eventId && priceTier) {
+                window.location.href = '?id=' + eventId + '&price_tier=' + priceTier;
+            } else {
+                console.error('Button missing id or value!', this);
+            }
+        });
+    });
+});

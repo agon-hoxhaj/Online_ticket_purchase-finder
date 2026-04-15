@@ -3,3 +3,4 @@
 69dadbf80abbc;art;art;Kosova;arti@gmail.com;$2y$10$/FxKLoyBm3q00DRO0FDEk.fvvIpVkp1vGHnPZN5Is0DZNvvvs5xBm;user
 69df995f22e79;Agon Hoxhaj;agoni;Kosova;agon@gmail.com;$2y$10$zllqQ8Wjz/hHPFjjawZCjOdhDQgrIxPBZ5aEELm7AKaBlv21sU4Vq;user
 
+69dfd7157861a;kaon;kaon;Kosova;a.b@gmail.com;$2y$10$sNKczyMT9Rqh4NMDngGLF.FF/InrIWCTQvlNRieMCBS2JXEg3DHf6;user

@@ -6,7 +6,7 @@ $ticked_db = fopen("../Server_data/ticked_database.txt","r") or die("Unable to o
 while(!feof($ticked_db)){
     $ticked = fgets($ticked_db);
     $ticked_info = explode(";" , $ticked);
-    $t10 = new Ticket($ticked_info[0], $ticked_info[1], $ticked_info[2], $ticked_info[3], $ticked_info[4], $ticked_info[5], $ticked_info[6]);
+    $t10 = new Ticket($ticked_info[0], $ticked_info[1], $ticked_info[2], $ticked_info[3], $ticked_info[4], $ticked_info[5], $ticked_info[6], $ticked_info[7]);
     array_push($tickets_array,$t10);
 }
 
