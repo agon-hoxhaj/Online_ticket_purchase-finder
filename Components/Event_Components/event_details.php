@@ -3,7 +3,6 @@ function renderEventDetails($tickets_array, $chairs) {
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $priceTier = isset($_GET['price_tier']) ? $_GET['price_tier'] : 1;
         $found = false;
         foreach($tickets_array as $index => $Ticket):
             $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
@@ -35,25 +34,11 @@ function renderEventDetails($tickets_array, $chairs) {
                                 <h6>
                                 <?= htmlspecialchars($Ticket->location) ?> · <?= $Ticket->date ?> · <?= $Ticket->time ?>
                                 </h6>
-                                <?php
-                                    $basePrice = $Ticket->price; 
-                                    if ($priceTier > 0 and $priceTier <= 12){
-                                        $finalPrice = $basePrice;
-                                        $label = 'Standard 🎟️';
-                                    }
-                                    elseif ($priceTier > 12 and $priceTier <= 16){
-                                        $finalPrice = $basePrice * 1.2;
-                                        $label = 'Early Bird 🎟️';
-                                    }
-                                    else{
-                                        $finalPrice = $basePrice * 2.5;
-                                        $label = 'VIP 🎫';
-                                    }
-                                ?>
-                                <h2 class="display-5 fw-bold mt-3">$<?= $finalPrice ?> <?= $label ?></h2>
+
+                                <h2 id="price_label" class="display-5 fw-bold mt-3"></h2>
                             </div>
                             <div class="seet_container flex-column">
-                                <?php seet_type($Ticket->event_type,$id) ?>
+                                <?php seet_type($Ticket->event_type,$id,$Ticket->price) ?>
                             </div>
                         </div>
                     </div>

@@ -51,27 +51,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.btn-success').forEach(button => {
         button.addEventListener('click', function() {
             const eventId = this.id;
-            console.log('Button clicked, ID:', eventId);
             if(eventId) {
                 window.location.href = '?id=' + eventId;
             } else {
-                console.error('Button has no ID!', this);
             }
         });
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.btn-outline-primary').forEach(button => {
-        button.addEventListener('click', function() {
-            const eventId = this.id;  
-            const priceTier = this.value;  
-            
-            if(eventId && priceTier) {
-                window.location.href = '?id=' + eventId + '&price_tier=' + priceTier;
-            } else {
-                console.error('Button missing id or value!', this);
-            }
-        });
-    });
-});
+function update(basePrice){
+
+    let finalPrice, label;
+    
+    if (tier > 0 && tier <= 12) {
+        finalPrice = basePrice;
+        label = 'Standard 🎟️';
+    } else if (tier > 12 && tier <= 16) {
+        finalPrice = basePrice * 1.2;
+        label = 'Early Bird 🎟️';
+    } else {
+        finalPrice = basePrice * 2.5;
+        label = 'VIP 🎫';
+    }
+    
+    document.getElementById('price_label').textContent = '$' + finalPrice + label;
+}
