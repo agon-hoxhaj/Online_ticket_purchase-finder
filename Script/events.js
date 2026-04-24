@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 function update(basePrice){
 
     let finalPrice, label;
