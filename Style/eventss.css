@@ -35,3 +35,13 @@
 h6{
     font-size: small;
 }
+.clipped-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mask-image: url('../Public/Ticket/ticket.png');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url('../Public/Ticket/ticket.png'); /* Safari support */
+  -webkit-mask-size: cover;
+}

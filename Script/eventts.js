@@ -78,5 +78,5 @@ function update(seet_num, basePrice){
     console.log(finalPrice + label);
     let info = 'St.'+ seet_num +' · $' + finalPrice + ' ' + label
     document.getElementById('price_label').textContent = info;
-    document.getElementById('event_info').value = info;
+    document.getElementById('ticket_info').value = info;
 }

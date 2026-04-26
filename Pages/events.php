@@ -11,20 +11,21 @@
 <body>
 
 <?php
-session_start();
-include_once __DIR__ . '/../Components/nav.php';
 require '../Classes/Event_Class.php';
 require '../Classes/Ticket_Class.php';
+
+session_start();
+
+include_once __DIR__ . '/../Components/nav.php';
 require '../Components/Event_Components/seet_formation.php';
 require '../Components/Event_Components/event_card.php';
 require '../Components/Event_Components/event_details.php';
-$user_tickets = [];
 ?>
 
 
 <div class="d-flex flex-row justify-content-between">
     <div class="d-flex flex-column" style="width: 50%;background-color: rgb(22, 22, 22);padding-top: 20px;">
-        <div c style="width: 100%;padding: 20px;padding-top: 20px;"> 
+        <div style="width: 100%;padding: 20px;padding-top: 20px;"> 
 
             <div class="container my-3">
                 <div class="form-inline my-2 my-lg-0">
@@ -59,9 +60,7 @@ $user_tickets = [];
     </div>
 </div>
 
-<script src="../Script/eventss.js"></script>
-
-
+<script src="../Script/eventts.js"></script>
 
 <?php include_once __DIR__ . '/../Components/footer.php'; ?>
 

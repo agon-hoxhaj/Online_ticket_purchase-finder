@@ -1,5 +1,6 @@
 
 <?php 
+
 function renderEventDetails($tickets_array, $chairs) {
 
     if (isset($_GET['id'])) {
@@ -45,8 +46,10 @@ function renderEventDetails($tickets_array, $chairs) {
                         <div class="dropdown-divider my-3"></div>
                         <form action="" method="POST">
                             <div class="d-flex flex-row justify-content-between">
-                                <input type="hidden" name="event_info" id="event_info" value="">
-                                <input type="hidden" name="event_id" value="<?= $id?>">
+                                
+                                <input type="hidden" name="event_name" value="<?= $id?>">
+                                <input type="hidden" name="ticket_info" id="ticket_info" value="">
+
                                 <h3 id="price_label" class="display-5 fw-bold my-3"><i class="text-secondary">ST · $PRICE <?= $Event->price ?> </i></h3>
                                 <button type="submit" class="btn btn-success my-auto">Buy</button>
                             </div>
@@ -72,12 +75,17 @@ function renderEventDetails($tickets_array, $chairs) {
 ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $event_info = $_POST['event_info'] ?? '';
-    $event_id = $_POST['event_id'] ?? '';
+    $event_name = $_POST['event_name'] ?? '';
+    $ticket_info = $_POST['ticket_info'] ?? '';
 
-    echo "<div id='c' style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#4CAF50;color:white;padding:20px;border-radius:10px;z-index:9999;font-size:24px;text-align:center;transition:opacity 0.5s;'>Bought {$event_info}</div>
+    echo "<div id='c' style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#4CAF50;color:white;padding:20px;border-radius:10px;z-index:9999;font-size:24px;text-align:center;transition:opacity 0.5s;'>Bought {$ticket_info}</div>
     <script>setTimeout(()=>{let c=document.getElementById('c');if(c)c.style.opacity=0},1500);setTimeout(()=>document.getElementById('c')?.remove(),3000)</script>";
+    $Ticket = new Ticket($event_name, $ticket_info);
+    print_r($Ticket);
+    if (!isset($_SESSION['user_tickets'])) {
+        $_SESSION['user_tickets'] = [];
+    }
 
-    $_SESSION['user_tickets'] = new Ticket($event_info,$event_id);
+    //$_SESSION['user_tickets'][] = $Ticket;
     }   
 ?>
