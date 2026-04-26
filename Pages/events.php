@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../Style/events.css">
+<link rel="stylesheet" href="../Style/eventss.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>Page Title</title>
@@ -13,10 +13,12 @@
 <?php
 session_start();
 include_once __DIR__ . '/../Components/nav.php';
+require '../Classes/Event_Class.php';
 require '../Classes/Ticket_Class.php';
 require '../Components/Event_Components/seet_formation.php';
 require '../Components/Event_Components/event_card.php';
 require '../Components/Event_Components/event_details.php';
+$user_tickets = [];
 ?>
 
 
@@ -46,20 +48,23 @@ require '../Components/Event_Components/event_details.php';
             </div>
 
             <div id="itemsContainer">
-                <?php foreach($tickets_array as $index => $Ticket){renderEventItem($Ticket,$base_path);}?>
+                <?php foreach($event_array as $index => $Event){renderEventItem($Event,$base_path);}?>
             </div>
 
         </div>
     </div>
 
     <div class="d-flex flex-column" style="width: 50%;background-color: rgb(22, 22, 22) ;padding-top: 40px;">
-        <?php renderEventDetails($tickets_array, $chairs);?>
+        <?php renderEventDetails($event_array, $chairs);?>
     </div>
 </div>
+
+<script src="../Script/eventss.js"></script>
+
+
 
 <?php include_once __DIR__ . '/../Components/footer.php'; ?>
 
 </body>
 </html>
 
-<script src="../Script/events.js"></script>

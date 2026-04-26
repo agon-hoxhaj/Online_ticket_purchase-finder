@@ -11,13 +11,13 @@
         switch($type){
             case 'Koncert':
             case 'Stand Up':
-                seet_1($chairs, $event_id,$base_price);
+                seet_1($chairs, $event_id, $base_price);
                 break;
             case 'Festival':
-                seet_2($chairs, $event_id,$base_price);
+                seet_2($chairs, $event_id, $base_price);
                 break;
             case 'Teater':
-                seet_3($chairs, $event_id,$base_price);
+                seet_3($chairs, $event_id, $base_price);
                 break;
         }
 
@@ -38,7 +38,7 @@
                 $isfree = ($status == "free") ? "btn-outline-primary" : "btn-danger";
                 
                 echo '<button 
-                        onclick="update('.$base_price.')"
+                        onclick="update('.$num.','.$base_price.')"
                         id="' . $event_id . '"
                         value="'. $num .'"
                         class="chair btn my-1 ' . $isfree . '"
@@ -77,7 +77,7 @@
             foreach ($row as $num => $status) 
                 {
                 $isfree = ($status == "free") ? "btn-outline-primary" : "btn-danger";
-                echo '<button onclick="update('.$base_price.')" id="' . $event_id . '" value="'. $num .'" class="chair btn my-1 ' . $isfree . '" data-bs-toggle="button" autocomplete="off">'. $num .'</button>';
+                echo '<button onclick="update('.$num.','.$base_price.')" id="' . $event_id . '" value="'. $num .'" class="chair btn my-1 ' . $isfree . '" data-bs-toggle="button" autocomplete="off">'. $num .'</button>';
                 }
             $i++;
             echo '</div>';
@@ -85,7 +85,7 @@
     }
 
 
-    function seet_3($chairs,$event_id)
+    function seet_3($chairs,$event_id, $base_price)
     {
         echo '<div class="d-flex flex-row">';
         $j = 1;
@@ -95,7 +95,7 @@
             echo '<div class="d-flex flex-column" style=" margin-right: ' . $m_right . 'px;">';
             foreach ($row as $num => $status) {
                 $isfree = ($status == "free") ? "btn-outline-primary" : "btn-danger";
-                echo '<button onclick="update('.$base_price.')" id="' . $event_id . '" value="'. $num .'" class="chair btn m-1 ' . $isfree . '" data-bs-toggle="button"autocomplete="off">'. $num .'</button>';
+                echo '<button onclick="update('.$num.','.$base_price.')" id="' . $event_id . '" value="'. $num .'" class="chair btn m-1 ' . $isfree . '" data-bs-toggle="button"autocomplete="off">'. $num .'</button>';
             }
             echo '</div>';
             $j ++;

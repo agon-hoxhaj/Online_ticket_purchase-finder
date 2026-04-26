@@ -1,31 +1,31 @@
 <?php 
-$tickets_array = [];
+$event_array = [];
 
-$ticked_db = fopen("../Server_data/ticked_database.txt","r") or die("Unable to open file!");
+$event_db = fopen("../Server_data/ticked_database.txt","r") or die("Unable to open file!");
 
-while(!feof($ticked_db)){
-    $ticked = fgets($ticked_db);
-    $ticked_info = explode(";" , $ticked);
-    $t10 = new Ticket($ticked_info[0], $ticked_info[1], $ticked_info[2], $ticked_info[3], $ticked_info[4], $ticked_info[5], $ticked_info[6], $ticked_info[7]);
-    array_push($tickets_array,$t10);
+while(!feof($event_db)){
+    $event = fgets($event_db);
+    $event_info = explode(";" , $event);
+    $t10 = new Event($event_info[0], $event_info[1], $event_info[2], $event_info[3], $event_info[4], $event_info[5], $event_info[6], $event_info[7]);
+    array_push($event_array,$t10);
 }
 
 
 $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
-function renderEventItem($Ticket, $base_path) {
+function renderEventItem($Event, $base_path) {
     
-    $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Ticket->event_name . '.jpeg';
+    $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Event->event_name . '.jpeg';
     
-    $search_name = strtolower($Ticket->event_name);
-    $search_type = strtolower($Ticket->event_type);
-    $search_location = strtolower($Ticket->location);
+    $search_name = strtolower($Event->event_name);
+    $search_type = strtolower($Event->event_type);
+    $search_location = strtolower($Event->location);
     ?>
     
     <div class="container my-1 event-item" 
         name="<?= htmlspecialchars($search_name) ?>"
         type="<?= htmlspecialchars($search_type) ?>"
-        date="<?= $Ticket->date ?>">
+        date="<?= $Event->date ?>">
 
         <div class="card text-white d-flex flex-row" style="background-color: black;">
 
@@ -39,14 +39,14 @@ function renderEventItem($Ticket, $base_path) {
 
             <div class="d-flex flex-grow-1 ps-3">
                 <div class="card-body">
-                    <h6><?= date('D', strtotime($Ticket->date)) ?> · <?= $Ticket->time ?></h6>
-                    <h5><?= htmlspecialchars($Ticket->event_type) ?> / <strong><?= htmlspecialchars($Ticket->event_name) ?></strong></h5>
-                    <h6>Prishtine · <?= htmlspecialchars($Ticket->location) ?></h6>
+                    <h6><?= date('D', strtotime($Event->date)) ?> · <?= $Event->time ?></h6>
+                    <h5><?= htmlspecialchars($Event->event_type) ?> / <strong><?= htmlspecialchars($Event->event_name) ?></strong></h5>
+                    <h6>Prishtine · <?= htmlspecialchars($Event->location) ?></h6>
                 </div>
             </div>
 
             <div class="d-flex align-items-center mr-3">
-                <button id="<?= $Ticket->event_name ?>" class="btn btn-success">Get ticket</button>
+                <button id="<?= $Event->event_name ?>" class="btn btn-success get_ticked">Get ticket</button>
             </div>
 
         </div>

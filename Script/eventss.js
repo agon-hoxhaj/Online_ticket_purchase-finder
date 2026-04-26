@@ -48,7 +48,7 @@ typeFilter.addEventListener('change', doSearch);
 timeFilter.addEventListener('change', doSearch);
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.btn-success').forEach(button => {
+    document.querySelectorAll('.get_ticked').forEach(button => {
         button.addEventListener('click', function() {
             const eventId = this.id;
             if(eventId) {
@@ -60,20 +60,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function update(basePrice){
+function update(seet_num, basePrice){
+
 
     let finalPrice, label;
     
-    if (tier > 0 && tier <= 12) {
+    if (seet_num > 0 && seet_num <= 12) {
         finalPrice = basePrice;
         label = 'Standard 🎟️';
-    } else if (tier > 12 && tier <= 16) {
+    } else if (seet_num > 12 && seet_num <= 16) {
         finalPrice = basePrice * 1.2;
-        label = 'Early Bird 🎟️';
+        label = 'Premium 🎟️';
     } else {
         finalPrice = basePrice * 2.5;
         label = 'VIP 🎫';
     }
-    
-    document.getElementById('price_label').textContent = '$' + finalPrice + label;
+    console.log(finalPrice + label);
+    let info = 'St.'+ seet_num +' · $' + finalPrice + ' ' + label
+    document.getElementById('price_label').textContent = info;
+    document.getElementById('event_info').value = info;
 }

@@ -1,16 +1,17 @@
+
 <?php 
 function renderEventDetails($tickets_array, $chairs) {
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $found = false;
-        foreach($tickets_array as $index => $Ticket):
+        foreach($tickets_array as $index => $Event):
             $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-            $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Ticket->event_name . '.jpeg';
-            $banner_url = $base_path . '/../Public/Temp_Event_Banner/' . $Ticket->event_name . '.jpeg';
+            $image_url = $base_path . '/../Public/Temp_Event_Img/' . $Event->event_name . '.jpeg';
+            $banner_url = $base_path . '/../Public/Temp_Event_Banner/' . $Event->event_name . '.jpeg';
     ?>
         <?php
-            if ($Ticket->event_name == $id):
+            if ($Event->event_name == $id):
         ?>
                 <div style="color:white; background-color:#333; border-radius:10px;">
                     
@@ -25,24 +26,33 @@ function renderEventDetails($tickets_array, $chairs) {
                         
 
                         <div class="d-flex flex-row justify-content-between">
-                            <h4><?= htmlspecialchars($Ticket->event_name) ?></h4>
+                            <h4><?= htmlspecialchars($Event->event_name) ?></h4>
                         </div>
 
                         <div class="d-flex flex-row my-3">
-                            <div class="d-flex flex-column pr-3 my-3" style="width:50%;">
-                                <p><?= $Ticket->description ?></p>
+                            <div class="d-flex flex-column pr-3 my-3" style="width:80%;">
+                                <p><?= $Event->description ?></p>
                                 <h6>
-                                <?= htmlspecialchars($Ticket->location) ?> · <?= $Ticket->date ?> · <?= $Ticket->time ?>
+                                <?= htmlspecialchars($Event->location) ?> · <?= $Event->date ?> · <?= $Event->time ?>
                                 </h6>
 
-                                <h2 id="price_label" class="display-5 fw-bold mt-3"></h2>
+
                             </div>
                             <div class="seet_container flex-column">
-                                <?php seet_type($Ticket->event_type,$id,$Ticket->price) ?>
+                                <?php seet_type($Event->event_type,$id,$Event->price) ?>
                             </div>
                         </div>
+                        <div class="dropdown-divider my-3"></div>
+                        <form action="" method="POST">
+                            <div class="d-flex flex-row justify-content-between">
+                                <input type="hidden" name="event_info" id="event_info" value="">
+                                <input type="hidden" name="event_id" value="<?= $id?>">
+                                <h3 id="price_label" class="display-5 fw-bold my-3"><i class="text-secondary">ST · $PRICE <?= $Event->price ?> </i></h3>
+                                <button type="submit" class="btn btn-success my-auto">Buy</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
+                </div>  
         <?php 
                 $found = true;
                 break;
@@ -51,7 +61,7 @@ function renderEventDetails($tickets_array, $chairs) {
         ?>
         <?php if (!$found): ?>
             <h3 style="color:white; padding:20px;">No event found with ID: <?= htmlspecialchars($id) ?></h3>
-            <h3 style="color:white; padding:20px;">No event found with ID: <?= $Ticket->event_id ?></h3>
+            <h3 style="color:white; padding:20px;">No event found with ID: <?= $Event->event_id ?></h3>
         <?php endif; ?>
     <?php 
     } 
@@ -59,4 +69,15 @@ function renderEventDetails($tickets_array, $chairs) {
         echo '<h3 style="color:white; padding:20px;">Click on any "Get ticket" button to see event details here</h3>';
     }
 }
+?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $event_info = $_POST['event_info'] ?? '';
+    $event_id = $_POST['event_id'] ?? '';
+
+    echo "<div id='c' style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#4CAF50;color:white;padding:20px;border-radius:10px;z-index:9999;font-size:24px;text-align:center;transition:opacity 0.5s;'>Bought {$event_info}</div>
+    <script>setTimeout(()=>{let c=document.getElementById('c');if(c)c.style.opacity=0},1500);setTimeout(()=>document.getElementById('c')?.remove(),3000)</script>";
+
+    $_SESSION['user_tickets'] = new Ticket($event_info,$event_id);
+    }   
 ?>
