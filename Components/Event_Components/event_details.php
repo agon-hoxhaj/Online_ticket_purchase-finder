@@ -69,7 +69,7 @@ function renderEventDetails($tickets_array, $chairs) {
     <?php 
     } 
     else {
-        echo '<h3 style="color:white; padding:20px;">Click on any "Get ticket" button to see event details here</h3>';
+        echo '<h3 style="color:white; padding:20px;">Click on any "Get ticket"</h3>';
     }
 }
 ?>

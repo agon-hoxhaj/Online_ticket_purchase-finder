@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function update(event_name,event_date,seet_num,basePrice){
+function update(event_name,event_date,event_time,seet_num,basePrice){
     let finalPrice, label;
     
     if (seet_num > 0 && seet_num <= 12) {
@@ -73,9 +73,9 @@ function update(event_name,event_date,seet_num,basePrice){
         finalPrice = basePrice * 2.5;
         label = 'VIP 🎫';
     }
-    console.log(finalPrice + label);
+    console.log(event_date);
     let info = 'St.'+ seet_num +' · $' + finalPrice + ' ' + label;
-    let ticked_info = event_name + ' | ' + event_date +' | '+ 'St.'+ seet_num +' | '+ finalPrice;
+    let ticked_info = event_name + ' | ' + event_time + "  " + event_date +' | '+ 'St.'+ seet_num +' | '+ finalPrice;
     document.getElementById('price_label').textContent = info;
     document.getElementById('ticket_info').value = ticked_info;
 }

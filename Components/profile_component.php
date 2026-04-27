@@ -37,8 +37,8 @@
             <br><br>
             <h5 class="my-3"><?= htmlspecialchars($_SESSION["username"]) ?></h5>
             <div class="d-flex justify-content-center mb-2">
-              <a href="../Pages/my_tickets.php"><button type="button" class="btn btn-primary">My Events</button></a>
-              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary ms-1">Log Out</button></a>
+              <a href="../Pages/my_tickets.php"><button type="button" class="btn btn-primary m-1">My Events</button></a>
+              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary m-1">Log Out</button></a>
             </div>
           </div>
         </div>

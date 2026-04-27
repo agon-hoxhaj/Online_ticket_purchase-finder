@@ -76,22 +76,26 @@
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">
-              <a href="../Pages/profile.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Profile</button></a>
-              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary ms-1">Log Out</button></a>
+              <a href="../Pages/profile.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary m-1">My Profile</button></a>
+              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary m-1">Log Out</button></a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-8 d-flex">
+        <?php
+            if (empty($_SESSION['user_tickets']) || !is_array($_SESSION['user_tickets'])) { 
+                echo '<div class="alert alert-warning text-center p-5 m-3" style="width:100%;height:100px;">No tickets available</div>';
+            } else {
+        ?>      
         <div class="d-flex flex-row flex-wrap">
             <?php
-            if (empty($_SESSION['user_tickets']) || !is_array($_SESSION['user_tickets'])) { 
-                echo '<div class="alert alert-warning text-center p-5 m-3">No tickets available</div>';
-            } else {
                 foreach($_SESSION['user_tickets'] as $index => $Ticket) { ?>
                   <?php $randomColor = $cssColors[array_rand($cssColors)]; ?>
-                    <div class="d-flex flex-column clipped-div" style="width: 200px; height: 120px; margin: 20px; background-color: <?=$randomColor?>;">
-                        <div class="d-flex flex-row h-100 w-100">   <!-- inner row for image + text -->
+                      <div class="d-flex flex-column clipped-div" 
+                          style="width: 200px; height: 120px; margin: 20px; background-color: <?=$randomColor?>; cursor: pointer;"
+                          onclick="window.location.href = '../Pages/events.php?id=<?=$Ticket->event_name?>';">
+                        <div class="d-flex flex-row h-100 w-100">
 
                             <div class="d-flex col-lg-3"
                                 style="
@@ -105,12 +109,12 @@
                                 ">
                             </div>
                             <div style="width: 1px; border-left: 2px dashed <?= $randomColor ?>; margin: 0 3px; filter: brightness(0.6);"></div>
-                            <div class="col-lg-8 d-flex flex-column justify-content-between">
+                            <div class="col-lg-8 d-flex flex-column p-2">
                                 <?php $info = explode("|",$Ticket->ticket_info);?>
                                 <h6><?= $info[0]?></h6>
                                 <h6 class="small-text"><?= $info[1] ?></h6>
                                 <h6 class="small-text"></h6>
-                                <h6><?= $info[3] ?>$</h6>
+                                <h6 style="margin-top: auto; margin-bottom: auto;"><?= $info[2]. " | "?> <?= $info[3] ?>$</h6>
                             </div>
                         </div>
                     </div>
