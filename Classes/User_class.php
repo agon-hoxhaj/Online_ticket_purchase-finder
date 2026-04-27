@@ -34,7 +34,7 @@
 
             $lines = file($file);
             foreach($lines as $line){
-                $line_split = explode(";", trim($line));
+                $line_split = explode(";", trim($line), 7);
 
                 if($line_split[4] == $email && password_verify($password, $line_split[5])){
                     session_start();
@@ -74,7 +74,7 @@
     $lines = file($file);
 
     foreach ($lines as $line) {
-        $line_split = explode(";", trim($line));
+        $line_split = explode(";", trim($line), 7);
         if (count($line_split) >= 7) {
             $users[] = [
                 "id"        => $line_split[0],

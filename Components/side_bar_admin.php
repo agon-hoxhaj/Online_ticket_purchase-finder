@@ -59,19 +59,17 @@
   </style>
 <div class="sidebar border-end">
   <div class="sidebar-header border-bottom">
-    <div class="sidebar-brand">CoreUI</div>
+    <div class="sidebar-brand">Admin nav</div>
   </div>
   <ul class="sidebar-nav">
-    <li class="nav-title">Nav Title</li>
     <li class="nav-item">
       <a class="nav-link active" href="#">
-        <i class="nav-icon cil-speedometer"></i> Nav item
+        <i class="nav-icon cil-speedometer"></i> Users
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> With badge
-        <span class="badge bg-primary ms-auto">NEW</span>
+        <i class="nav-icon cil-speedometer"></i> Events
       </a>
     </li>
     <li class="nav-item nav-group show">

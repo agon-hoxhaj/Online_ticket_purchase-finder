@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . '/../Components/auth.php'; 
-
-// No redirect here - let auth.php handle auto-login from cookie, then show login form if still not logged in
 ?>
 
 <?php ?>

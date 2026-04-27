@@ -1,12 +1,10 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-
-// Auto-login from cookie if no session
 if (!isset($_SESSION["user-id"]) && isset($_COOKIE["remember_email"])) {
     $file = __DIR__ . "/../Server_data/Users.txt";
     if (file_exists($file)) {
         foreach (file($file) as $line) {
-            $line_split = explode(";", trim($line));
+            $line_split = explode(";", trim($line), 7);
             if ($line_split[4] == $_COOKIE["remember_email"]) {
                 $_SESSION["user-id"]   = $line_split[0];
                 $_SESSION["full-name"] = $line_split[1];
