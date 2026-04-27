@@ -50,10 +50,6 @@
 <?php include_once __DIR__ . '/../Components/nav.php';?>
 
 <section style="background-color: #eee;">
-  <?php 
-    foreach($_SESSION['user_tickets'] as $Ticket) {
-    print_r($Ticket);}
-  ?>
   <div class="container py-5">
     <div class="row">
       <div class="col">
@@ -73,7 +69,7 @@
           <div class="card-body text-center">
             <br>
             <img src="../Public/kanye.jpg" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
+              class="rounded-circle img-fluid" style="width: 150px; position: sticky;top: 0;z-index: 1000;">
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">

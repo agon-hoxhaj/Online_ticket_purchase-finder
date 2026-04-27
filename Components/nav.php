@@ -29,10 +29,11 @@ require_once __DIR__ . "/auth.php";
       </li>
     </ul>
     <a href="../Pages/profile.php" style="padding-right: 10px; color: white;"><?php echo $_SESSION['username'];?></a>
-    <form class="form-inline my-2 my-lg-0">
+    <a href="../Pages/my_tickets.php" style="padding-right: 10px; color: white;">🎟️</a>
+    <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2 bg-dark text-white border-secondary" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>
 </body>

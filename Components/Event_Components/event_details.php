@@ -74,18 +74,26 @@ function renderEventDetails($tickets_array, $chairs) {
 }
 ?>
 <?php
+if (isset($_SESSION['user_tickets']) && !is_array($_SESSION['user_tickets'])) {
+    $_SESSION['user_tickets'] = [];
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $event_name = $_POST['event_name'] ?? '';
     $ticket_info = $_POST['ticket_info'] ?? '';
 
+    if (empty($event_name) || empty($ticket_info)) {
+        echo "<div id='c' style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:white;padding:20px;border-radius:10px;z-index:9999;font-size:24px;text-align:center;transition:opacity 0.5s;'>NO SEAT SELECTED</div>
+        <script>setTimeout(()=>{let c=document.getElementById('c');if(c)c.style.opacity=0},1500);setTimeout(()=>document.getElementById('c')?.remove(),3000)</script>";
+        return;
+    }
     echo "<div id='c' style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#4CAF50;color:white;padding:20px;border-radius:10px;z-index:9999;font-size:24px;text-align:center;transition:opacity 0.5s;'>Bought {$ticket_info}</div>
     <script>setTimeout(()=>{let c=document.getElementById('c');if(c)c.style.opacity=0},1500);setTimeout(()=>document.getElementById('c')?.remove(),3000)</script>";
-    $Ticket = new Ticket($event_name, $ticket_info);
-    print_r($Ticket);
+    
     if (!isset($_SESSION['user_tickets'])) {
         $_SESSION['user_tickets'] = [];
     }
+    
+    array_push($_SESSION['user_tickets'], new Ticket($event_name, $ticket_info));
+}
 
-    //$_SESSION['user_tickets'][] = $Ticket;
-    }   
 ?>
