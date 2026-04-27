@@ -28,6 +28,9 @@
 .clipped-div:hover {
     transform: scale(1.2);
 }
+.small-text {
+  font-size: 0.7em;
+}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -73,7 +76,7 @@
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">
-              <a href="../Pages/my_events.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Events</button></a>
+              <a href="../Pages/profile.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Profile</button></a>
               <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Log Out</button>
             </div>
           </div>
@@ -98,10 +101,12 @@
                             ">
                         </div>
                         <div style="width: 1px; border-left: 2px dashed <?= $randomColor ?>; margin: 0 3px; filter: brightness(0.6);"></div>
-                        <div class="d-flex col-lg-6">
-
+                        <div class="col-lg-8 d-flex flex-column justify-content-between">
                             <?php $info = explode("|",$Ticket->ticket_info);?>
-                            <h6><?= $info[0] ?></h6>
+                            <h6><?= $info[0]?></h6>
+                            <h6 class="small-text"><?= $info[1] ?></h6>
+                            <h6 class="small-text"></h6>
+                            <h6><?= $info[3] ?>$</h6>
                         </div>
                     </div>
                 </div>
@@ -111,9 +116,6 @@
     </div>
   </div>
 </section>
-
-
-
 <?php include_once __DIR__ . '/../Components/footer.php';?>
 </body>
 </html>
