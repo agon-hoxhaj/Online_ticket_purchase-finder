@@ -90,6 +90,9 @@
         ?>      
         <div class="d-flex flex-row flex-wrap">
             <?php
+                usort($_SESSION['user_tickets'], function($a, $b) {
+                    return strcmp($a->event_name, $b->event_name);
+                });
                 foreach($_SESSION['user_tickets'] as $index => $Ticket) { ?>
                   <?php $randomColor = $cssColors[array_rand($cssColors)]; ?>
                       <div class="d-flex flex-column clipped-div" 
@@ -110,7 +113,7 @@
                             </div>
                             <div style="width: 1px; border-left: 2px dashed <?= $randomColor ?>; margin: 0 3px; filter: brightness(0.6);"></div>
                             <div class="col-lg-8 d-flex flex-column p-2">
-                                <?php $info = explode("|",$Ticket->ticket_info);?>
+                                <?php $info = explode("|",$Ticket->getTicketinfo());?>
                                 <h6><?= $info[0]?></h6>
                                 <h6 class="small-text"><?= $info[1] ?></h6>
                                 <h6 class="small-text"></h6>

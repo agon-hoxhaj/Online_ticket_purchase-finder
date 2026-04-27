@@ -22,9 +22,6 @@ require_once __DIR__ . "/auth.php";
         <a class="nav-link" href="../Pages/landing.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item" id="events_link">
         <a class="nav-link" href="../Pages/events.php">Events</a>
       </li>
     </ul>
