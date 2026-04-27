@@ -61,7 +61,7 @@ Metodat:
 
 ## Shënime
 
-- Të dhënat ruhen në file (.txt), jo në databazë
+- Të dhënat ruhen në file (.txt), jo databazë
 - Autentikimi bëhet me session
 - Password-at ruhen të enkriptuara
 - Biletat ruhen përkohësisht në session gjatë ekzekutimit
