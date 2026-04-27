@@ -83,34 +83,38 @@
         </div>
       </div>
       <div class="col-lg-8 d-flex">
-        <div class="d-flex flex-row flex-wrap">    <!-- parent for all tickets -->
-            <?php foreach($_SESSION['user_tickets'] as $index => $Ticket) { ?>
-              <?php $randomColor = $cssColors[array_rand($cssColors)]; ?>
-                <div class="d-flex flex-column clipped-div" style="width: 200px; height: 120px; margin: 20px; background-color: <?=$randomColor?>;">
-                    <div class="d-flex flex-row h-100 w-100">   <!-- inner row for image + text -->
+        <div class="d-flex flex-row flex-wrap">
+            <?php
+            if (empty($_SESSION['user_tickets']) || !is_array($_SESSION['user_tickets'])) { 
+                echo '<div class="alert alert-warning text-center p-5 m-3">No tickets available</div>';
+            } else {
+                foreach($_SESSION['user_tickets'] as $index => $Ticket) { ?>
+                  <?php $randomColor = $cssColors[array_rand($cssColors)]; ?>
+                    <div class="d-flex flex-column clipped-div" style="width: 200px; height: 120px; margin: 20px; background-color: <?=$randomColor?>;">
+                        <div class="d-flex flex-row h-100 w-100">   <!-- inner row for image + text -->
 
-                        <div class="d-flex col-lg-3"
-                            style="
-                                
-                                background:url('../Public/Temp_Event_Banner/Nirvana.jpeg');
-                                
-                                background-color: <?= $randomColor ?>;
-                                background-size: cover;
-                                background-position: center;
-                                background-blend-mode: multiply;
-                            ">
-                        </div>
-                        <div style="width: 1px; border-left: 2px dashed <?= $randomColor ?>; margin: 0 3px; filter: brightness(0.6);"></div>
-                        <div class="col-lg-8 d-flex flex-column justify-content-between">
-                            <?php $info = explode("|",$Ticket->ticket_info);?>
-                            <h6><?= $info[0]?></h6>
-                            <h6 class="small-text"><?= $info[1] ?></h6>
-                            <h6 class="small-text"></h6>
-                            <h6><?= $info[3] ?>$</h6>
+                            <div class="d-flex col-lg-3"
+                                style="
+                                    
+                                    background:url('../Public/Temp_Event_Banner/Nirvana.jpeg');
+                                    
+                                    background-color: <?= $randomColor ?>;
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-blend-mode: multiply;
+                                ">
+                            </div>
+                            <div style="width: 1px; border-left: 2px dashed <?= $randomColor ?>; margin: 0 3px; filter: brightness(0.6);"></div>
+                            <div class="col-lg-8 d-flex flex-column justify-content-between">
+                                <?php $info = explode("|",$Ticket->ticket_info);?>
+                                <h6><?= $info[0]?></h6>
+                                <h6 class="small-text"><?= $info[1] ?></h6>
+                                <h6 class="small-text"></h6>
+                                <h6><?= $info[3] ?>$</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php }}?>
         </div>
       </div>
     </div>
