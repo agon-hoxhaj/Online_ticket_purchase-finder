@@ -62,7 +62,7 @@
       $price = trim($_POST['price']);
       $city = trim($_POST['city']);
 
-      $line = "$event_name;$event_type;$description;$location;$date;$time;$price;$city" . PHP_EOL;
+      $line = "\n$event_name;$event_type;$description;$location;$date;$time;$price;$city" . PHP_EOL;
       file_put_contents(__DIR__ . '/../Server_data/ticked_database.txt', $line, FILE_APPEND);
       echo '<div class="alert alert-success mt-3">Event added successfully!</div>';
     }

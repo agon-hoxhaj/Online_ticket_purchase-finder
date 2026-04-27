@@ -1,21 +1,4 @@
 <?php
-/*require_once __DIR__ . "/../Classes/User_class.php";
-require_once __DIR__ . "/validation_handler.php";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    echo "<pre>";
-    echo "POST DATA: "; print_r($_POST);
-    $errors = validateLogin($_POST);
-    echo "ERRORS: "; print_r($errors);
-    echo "LOGIN RESULT: "; var_dump(User::login($_POST["login"], $_POST["password"]));
-    echo "</pre>";
-    die();
-
-}
-*/
-?>
-
-<?php
 require_once "../Classes/User_class.php";
 require_once __DIR__ . "/validation_handler.php";
 

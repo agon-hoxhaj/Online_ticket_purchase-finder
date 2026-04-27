@@ -1,13 +1,3 @@
-<?php /*temp
-include_once __DIR__ . '/../Components/auth.php';
-echo "<pre>";
-echo "SESSION: "; print_r($_SESSION);
-echo "COOKIES: "; print_r($_COOKIE);
-echo "</pre>";
-die();*/
-?>
-
-
 <?php 
 include_once __DIR__ . '/../Components/auth.php';
 if (!isset($_SESSION["user-id"])) {
