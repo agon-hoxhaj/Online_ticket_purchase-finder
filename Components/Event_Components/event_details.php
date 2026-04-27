@@ -40,7 +40,7 @@ function renderEventDetails($tickets_array, $chairs) {
 
                             </div>
                             <div class="seet_container flex-column">
-                                <?php seet_type($Event->event_type,$id,$Event->price) ?>
+                                <?php seet_type($Event,$id)?>
                             </div>
                         </div>
                         <div class="dropdown-divider my-3"></div>

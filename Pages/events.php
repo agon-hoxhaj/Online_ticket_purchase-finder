@@ -60,7 +60,7 @@ require '../Components/Event_Components/event_details.php';
     </div>
 </div>
 
-<script src="../Script/eventts.js"></script>
+<script src="../Script/eventtss.js"></script>
 
 <?php include_once __DIR__ . '/../Components/footer.php'; ?>
 
