@@ -11,7 +11,6 @@
         private $password; 
         private $country;
         private $user_type; 
-        private array $tickets = [];
 
         private $file = __DIR__ . "/../Server_data/Users.txt";
         
@@ -50,13 +49,6 @@
             return false;
         }
 
-        function add_ticket(Ticket $ticket){
-            $this->tickets[] = $ticket;
-        }
-
-        function get_tickets(){  
-            return $this->tickets;
-        }
 
         function get_UserDetails(){
         return [

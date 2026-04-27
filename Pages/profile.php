@@ -29,9 +29,11 @@ if (!isset($_SESSION["user-id"])) {
 </head>
 <body>
     
-<?php include_once __DIR__ . '/../Components/nav.php';?>
-<?php include_once __DIR__ . '/../Components/Profile_component.php';?>
-<?php include_once __DIR__ . '/../Components/footer.php';?>
+<?php
+include_once __DIR__ . '/../Components/nav.php';
+include_once __DIR__ . '/../Components/Profile_component.php';
+include_once __DIR__ . '/../Components/footer.php';
+?>
 
 </body>
 </html>
