@@ -68,9 +68,9 @@ function renderEventDetails($tickets_array, $chairs) {
         <?php endif; ?>
     <?php 
     } 
-    else {
-        echo '<h3 style="color:white; padding:20px;">Click on any "Get ticket"</h3>';
-    }
+    // else {
+    //     echo '<h3 style="color:white; padding:20px;">Click any event</h3>';
+    // }
 }
 ?>
 <?php
