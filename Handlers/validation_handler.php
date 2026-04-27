@@ -22,7 +22,7 @@ function validateRegister(array $post): array {
     $username = trim($post["username"] ?? '');
     $email    = trim($post["email"] ?? '');
     $password = $post["password_register"] ?? '';
-    $confirm  = $post["confirmPassword"] ?? '';
+    $confirm  = $post["confirm_password"] ?? '';
     $country  = trim($post["country"] ?? '');
 
     if (!preg_match('/^[a-zA-Z\s]{3,50}$/', $fullName)) {
