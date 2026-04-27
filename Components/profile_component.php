@@ -38,7 +38,7 @@
             <h5 class="my-3"><?= htmlspecialchars($_SESSION["username"]) ?></h5>
             <div class="d-flex justify-content-center mb-2">
               <a href="../Pages/my_tickets.php"><button type="button" class="btn btn-primary m-1">My Events</button></a>
-              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary m-1">Log Out</button></a>
+              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-primary m-1">Log Out</button></a>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
             </div>
             <hr>
             <div class="text-right">
-              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#editProfileModal">
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProfileModal">
                 Edit Profile
               </button>
             </div>
@@ -106,8 +106,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Save Changes</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
         </div>
       </form>
     </div>
