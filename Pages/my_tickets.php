@@ -16,9 +16,6 @@
     -webkit-mask-size: 100% 100%;
     mask-repeat: no-repeat;
     -webkit-mask-image: url('../Public/Ticket/ticket3.png');
-
-    
-    /* Optional: add text or other elements inside */
     display: flex;
     align-items: center;
     color: white;

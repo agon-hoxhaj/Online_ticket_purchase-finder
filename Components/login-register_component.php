@@ -12,8 +12,6 @@
 <div class="auth-card">
   <h2>Welcome</h2>
   <p class="subtitle">Sign in to your account or create one</p>
-
-  <!-- Tabs -->
   <ul class="nav nav-pills nav-justified" id="authTabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="login-tab" data-toggle="pill" href="#pills-login" role="tab">Login</a>
@@ -24,8 +22,6 @@
   </ul>
 
   <div class="tab-content">
-
-    <!-- LOGIN -->
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel">
       <form id="loginForm" action="../Handlers/login_handler.php" method="POST">
         <div class="form-group">
@@ -51,8 +47,6 @@
         </p>
       </form>
     </div>
-
-    <!-- REGISTER -->
     <div class="tab-pane fade" id="pills-register" role="tabpanel">
       <form id="registerForm" action="../Handlers/register_handler.php" method="POST">
         <div class="form-group">
