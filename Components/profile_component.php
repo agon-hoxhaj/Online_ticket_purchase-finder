@@ -5,7 +5,6 @@
         <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Pages/landing.php">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">User</a></li>
             <li class="breadcrumb-item active" aria-current="page">User Profile</li>
           </ol>
         </nav>
@@ -22,7 +21,7 @@
               <br><br>
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">
-              <a href="../Pages/my_events.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Events</button></a>
+              <a href="../Pages/my_tickets.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Events</button></a>
               <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Log Out</button>
             </div>
           </div>

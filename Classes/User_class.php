@@ -34,7 +34,7 @@
 
             $lines = file($file);
             foreach($lines as $line){
-                $line_split = explode(";", $line);
+                $line_split = explode(";", trim($line));
 
                 if($line_split[4] == $email && password_verify($password, $line_split[5])){
                     session_start();
