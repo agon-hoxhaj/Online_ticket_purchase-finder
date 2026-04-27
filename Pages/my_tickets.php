@@ -77,7 +77,7 @@
             <h5 class="my-3"><?= $_SESSION["username"] ?></h5>
             <div class="d-flex justify-content-center mb-2">
               <a href="../Pages/profile.php"><button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">My Profile</button></a>
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Log Out</button>
+              <a href="../Handlers/logout_handler.php"><button type="button" class="btn btn-outline-primary ms-1">Log Out</button></a>
             </div>
           </div>
         </div>
