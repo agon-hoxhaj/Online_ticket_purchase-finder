@@ -92,7 +92,19 @@
             foreach ($row as $num => $status) 
                 {
                 $isfree = ($status == "free") ? "btn-outline-primary" : "btn-danger";
-                echo '<button onclick="update(\'' . addslashes($event_name) . '\', \'' . addslashes($event_date) . '\', \'' . addslashes($event_time) . '\', ' . $num . ', ' . $base_price . ')" 
+                $onlclick = "";
+                if ($status == "free"){
+                    $onlclick = sprintf(
+                        'onclick="update(%s, %s, %s, %d, %f)"',
+                        htmlspecialchars(json_encode($event_name), ENT_QUOTES, 'UTF-8'),
+                        htmlspecialchars(json_encode($event_date), ENT_QUOTES, 'UTF-8'),
+                        htmlspecialchars(json_encode($event_time), ENT_QUOTES, 'UTF-8'),
+                        $num,
+                        $base_price
+                );
+                }
+                echo '<button 
+                        '.$onlclick.'
                         id="' . $event_id . '" 
                         value="'. $num .'" 
                         class="chair btn my-1 ' . $isfree . '" data-bs-toggle="button" autocomplete="off">'. $num .'</button>';
@@ -113,7 +125,19 @@
             echo '<div class="d-flex flex-column" style=" margin-right: ' . $m_right . 'px;">';
             foreach ($row as $num => $status) {
                 $isfree = ($status == "free") ? "btn-outline-primary" : "btn-danger";
-                echo '<button onclick="update(\'' . addslashes($event_name) . '\', \'' . addslashes($event_date) . '\', \'' . addslashes($event_time) . '\', ' . $num . ', ' . $base_price . ')" 
+                $onlclick = "";
+                if ($status == "free"){
+                    $onlclick = sprintf(
+                        'onclick="update(%s, %s, %s, %d, %f)"',
+                        htmlspecialchars(json_encode($event_name), ENT_QUOTES, 'UTF-8'),
+                        htmlspecialchars(json_encode($event_date), ENT_QUOTES, 'UTF-8'),
+                        htmlspecialchars(json_encode($event_time), ENT_QUOTES, 'UTF-8'),
+                        $num,
+                        $base_price
+                );
+                }
+                echo '<button 
+                        '.$onlclick.'
                         id="' . $event_id . '" 
                         value="'. $num .'" 
                         class="chair btn m-1 ' . $isfree . '" data-bs-toggle="button"autocomplete="off">'. $num .'</button>';
