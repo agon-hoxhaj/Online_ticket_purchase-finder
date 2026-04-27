@@ -5,11 +5,12 @@ $event_db = fopen("../Server_data/ticked_database.txt","r") or die("Unable to op
 
 while(!feof($event_db)){
     $event = fgets($event_db);
+    if(!(trim($event) === "")){
     $event_info = explode(";" , $event);
     $t10 = new Event($event_info[0], $event_info[1], $event_info[2], $event_info[3], $event_info[4], $event_info[5], $event_info[6], $event_info[7]);
     array_push($event_array,$t10);
 }
-
+}
 
 $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
