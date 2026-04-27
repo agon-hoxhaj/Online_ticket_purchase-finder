@@ -12,8 +12,8 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-        <h1 class="display-3 text-white font-weight-bold">Welcome to Our World</h1>
-        <p class="lead text-white mb-4">Discover amazing experiences and unforgettable adventures</p>
+        <h1 class="display-3 text-white font-weight-bold">Welcome to Our World!</h1>
+        <p class="lead text-white mb-4">Discover amazing experiences and unforgettable events.</p>
         <a href="../Pages/events.php" class="btn btn-primary btn-lg">Get Started</a>
       </div>
     </div>
