@@ -22,13 +22,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($new_password)) {
         if (strlen($new_password) < 8) {
             $errors[] = "Password must be at least 8 characters.";
-        } elseif (!preg_match('/[A-Z]/', $new_password)) {
+        } 
+        if (!preg_match('/[A-Z]/', $new_password)) {
             $errors[] = "Password must contain at least 1 uppercase letter.";
-        } elseif (!preg_match('/[0-9]/', $new_password)) {
+        } 
+        if (!preg_match('/[0-9]/', $new_password)) {
             $errors[] = "Password must contain at least 1 number.";
-        } elseif (!preg_match('/[^a-zA-Z0-9]/', $new_password)) {
+        }
+        if (!preg_match('/[^a-zA-Z0-9]/', $new_password)) {
             $errors[] = "Password must contain at least 1 special character.";
-        } elseif ($new_password !== $confirm_password) {
+        }
+        if ($new_password !== $confirm_password) {
             $errors[] = "Passwords do not match.";
         }
     }
