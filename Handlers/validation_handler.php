@@ -36,14 +36,18 @@ function validateRegister(array $post): array {
     }
     if (empty($password)) {
         $errors[] = "Password cannot be empty.";
-    } elseif (strlen($password) < 8) {
-        $errors[] = "Password must be at least 8 characters.";
-    } elseif (!preg_match('/[A-Z]/', $password)) {
-        $errors[] = "Password must contain at least 1 uppercase letter.";
-    } elseif (!preg_match('/[0-9]/', $password)) {
-        $errors[] = "Password must contain at least 1 number.";
-    } elseif (!preg_match('/[^a-zA-Z0-9]/', $password)) {
-        $errors[] = "Password must contain at least 1 special character (!@#$%^&*).";
+    }
+    if (strlen($password) < 8){ 
+        $errors[] = "Password must be at least 8 characters."; 
+    }
+    if (!preg_match('/[A-Z]/', $password)) { 
+        $errors[] = "Password must contain at least 1 uppercase letter."; 
+    }
+    if (!preg_match('/\d/', $password)) { 
+        $errors[] = "Password must contain at least 1 number."; 
+    }
+    if (!preg_match('/[^a-zA-Z0-9]/', $password)) { 
+        $errors[] = "Password must contain at least 1 special character (!@#$%^&*)."; 
     }
     if ($password !== $confirm) {
         $errors[] = "Passwords do not match.";

@@ -1,8 +1,16 @@
 <?php
 require_once __DIR__ . '/../Components/auth.php'; 
-?>
 
-<?php ?>
+if (!empty($_SESSION["errors"])): ?>
+      <div id="alert" class="alert alert-danger">
+        <ul class="mb-0">
+          <?php foreach ($_SESSION["errors"] as $e): ?>
+            <li><?= htmlspecialchars($e) ?></li>
+          <?php endforeach; unset($_SESSION["errors"]); ?>
+        </ul>
+      </div>
+    <?php endif; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,6 +102,18 @@ require_once __DIR__ . '/../Components/auth.php';
     }
  
     .small-link a:hover, .forgot:hover { text-decoration: underline; }
+
+    #alert{
+        position: fixed;
+       top: 0;
+        left: 0;
+       width: 100%;
+       z-index: 1000;
+      
+    }
+    .mb-0{
+         text-align: center;
+    }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
