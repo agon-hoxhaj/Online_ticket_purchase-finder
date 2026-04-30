@@ -42,6 +42,6 @@ h6{
   mask-image: url('../Public/Ticket/ticket.png');
   mask-size: cover;
   mask-repeat: no-repeat;
-  -webkit-mask-image: url('../Public/Ticket/ticket.png'); /* Safari support */
+  -webkit-mask-image: url('../Public/Ticket/ticket.png');
   -webkit-mask-size: cover;
 }

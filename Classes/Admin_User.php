@@ -2,7 +2,7 @@
 require_once "User_Class.php";
 
 class Admin extends User {
-    static function delete_user($id) {
+    /*static function delete_user($id) {
         $file = __DIR__ . "/../Server_data/Users.txt";
         if (!file_exists($file)) return false;
 
@@ -32,5 +32,6 @@ class Admin extends User {
         file_put_contents($file, implode("", $updated));
         return true;
     }
+        */
 }
 ?>
